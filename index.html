@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width">
+<title>kevin stadler</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.4/fullpage.css" />
+<link rel="alternate" type="application/atom+xml" title="blog feed" href="/feed.xml" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.4/fullpage.js"></script>
+<base target="_blank" />
+</head>
+<body>
+<div id="nav"><!-- TODO make permanently float on the right -->
+	<li data-menuanchor="home"><a href="#aboutme" target="_self">about me</a></li>
+	<li data-menuanchor="home"><a href="#cartography" target="_self">cartography</a></li>
+	<li data-menuanchor="contact"><a href="#contact" target="_self">contact</a></li>
+</div>
+
+<div id="fullpage">
+	<div class="section">
+		<div class="flex">
+			<div>
+				<h2>kevin stadler</h2>
+				<p>Lorem ipsum dolor amet synth bitters you probably haven't heard of them hashtag slow-carb kale chips pok pok YOLO portland. Kale chips subway tile taxidermy tilde tattooed organic thundercats wayfarers live-edge vaporware pop-up gentrify venmo man braid. Mlkshk activated charcoal deep v organic PBR&B neutra blue bottle. Sartorial lomo pabst unicorn, selfies waistcoat hella intelligentsia lumbersexual paleo. Pop-up kogi viral hexagon. Vape affogato farm-to-table, fixie deep v four dollar toast you probably haven't heard of them sriracha mlkshk irony yr. Art party squid austin twee meggings freegan.</p>
+			</div>
+			<img src="https://kevinstadler.github.io/kevin.jpg" />
+		</div>
+	</div>
+	<div class="section">
+		<div>
+			<p>My PhD thesis can be downloaded from the <a href="https://www.era.lib.ed.ac.uk/handle/1842/22980">Edinburgh Research Archive</a>. The source code for the models, graphs and statistical analyses can be found in the dedicated <a href="https://github.com/kevinstadler/thesis">github repository</a>.</p>
+			<p>Also my R package.</p>
+		</div>
+	</div>
+	<div class="section">
+		<div>
+			<p>Shoreditch lo-fi authentic 8-bit disrupt normcore waistcoat jean shorts stumptown crucifix poke pinterest shaman small batch poutine. Trust fund chillwave deep v, leggings vaporware vinyl narwhal blue bottle viral lo-fi occupy hot chicken. Echo park raw denim kinfolk, poutine cornhole taiyaki lyft mumblecore street art vexillologist gochujang church-key ethical. Bespoke drinking vinegar normcore viral poutine chia VHS next level.</p>
+		</div>
+	</div>
+	<div class="section">
+		<div>
+			<h2>processing-sound</h2>
+			<p>For Google Summer of Code I undertook a re-write of Processing's official Sound library. I still act as the maintainer of the Java library.</p>
+		</div>
+	</div>
+	<div class="section">
+		<div>
+			<h2>contact</h2>
+			<p>Readymade kitsch adaptogen, asymmetrical literally deep v thundercats gluten-free organic cray shoreditch cornhole. Cornhole affogato mixtape viral church-key artisan poutine. Prism fam keytar aesthetic, chia beard pop-up unicorn. Truffaut chicharrones before they sold out, poutine raw denim hexagon hammock kitsch selfies. Ugh butcher taxidermy subway tile four loko intelligentsia selvage. Chambray taiyaki cloud bread irony sartorial microdosing air plant prism actually mixtape.</p>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+new fullpage('#fullpage', {
+	// licenseKey: TODO,
+	anchors: ['aboutme', 'research', 'cartography', 'sonicgraygoo', 'processing', 'sound', 'contact'],
+	autoScrolling: true,
+	scrollBar: true,
+	menu: '#nav',
+	verticalCentered: false
+});
+</script>
+</body>
+</html>

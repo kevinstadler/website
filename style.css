@@ -1,0 +1,59 @@
+body {
+	font-family: sans-serif;
+	background-color: #F0F0F0;
+	font-size: 14px;
+	line-height: 1.4;
+}
+
+div.section {
+	margin: auto;
+	max-width: 80%; /* of page */
+	padding: 22px;
+}
+
+/* all sub-divs of a section are styled */
+div.section > div {
+	background-color: #FFF;
+	padding: 20px;
+}
+
+/* but only some of them have complex content that needs flexing */
+div.flex {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+/*	flex-wrap: wrap; */
+}
+
+div.flex > * {
+	margin: 10px;
+}
+
+p {
+	text-align: justify;
+	min-width: 20em;
+	max-width: 40em;
+}
+
+div.flex > img {
+	float: right;
+	padding: 10px;
+}
+
+#nav {
+	/* TODO make permanently float on the right */
+}
+
+a:link, a:hover {
+	color: rgb(0, 0, 220);
+	text-decoration: underline;
+}
+
+a:visited {
+	color: rgb(85, 26, 139);
+	text-decoration: underline;
+}
+
+a:active {
+	color: #AA0000;
+}
