@@ -11,21 +11,20 @@ div.section {
 	padding: 22px;
 }
 
-/* all sub-divs of a section are styled */
-div.section > div {
-	background-color: #FFF;
+/* but only some of them have complex content that needs flexing */
+div.content {
 	padding: 20px;
+	background-color: #FFF;
 }
 
-/* but only some of them have complex content that needs flexing */
-div.flex {
+div.hasmedia {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-/*	flex-wrap: wrap; */
+/*	flex-wrap: wrap; */	
 }
 
-div.flex > * {
+div.hasmedia > * {
 	margin: 10px;
 }
 
@@ -35,9 +34,10 @@ p {
 	max-width: 40em;
 }
 
-div.flex > img {
+div.content > img {
 	float: right;
 	padding: 10px;
+	max-width: 60%;
 }
 
 #nav {
