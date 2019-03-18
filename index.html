@@ -11,16 +11,18 @@
 <base target="_blank" />
 </head>
 <body>
-<div id="nav"><!-- TODO make permanently float on the right -->
-	<li data-menuanchor="home"><a href="#aboutme" target="_self">about me</a></li>
-	<li data-menuanchor="home"><a href="#cartography" target="_self">cartography</a></li>
-	<li data-menuanchor="home"><a href="#sound" target="_self">sound</a></li>
-	<li data-menuanchor="contact"><a href="#contact" target="_self">contact</a></li>
-</div>
+<nav>
+	<ul id="menu">
+		<li data-menuanchor="home"><a href="#aboutme" target="_self">about me</a></li>
+		<li data-menuanchor="home"><a href="#cartography" target="_self">cartography</a></li>
+		<li data-menuanchor="home"><a href="#sound" target="_self">sound</a></li>
+		<li data-menuanchor="contact"><a href="#contact" target="_self">contact</a></li>
+	</ul>
+</nav>
 
 <div id="fullpage">
 	<div class="section"><!-- #aboutme -->
-		<div class="content hasmedia">
+		<div class="content mixed">
 			<div>
 				<h2>kevin stadler</h2>
 				<p>Originally trained as a software engineer, I received a PhD in Linguistics & English Language from the University of Edinburgh in 2017. Apart from modelling language change I have also worked with (and on) open source software on a a wide range of other topics, in particular <a href="#cartography" target="_self">cartography</a> and <a href="#sound" target="_self">sound</a>.</p>
@@ -33,47 +35,71 @@
 		<div class="content">
 			<p>My PhD thesis can be downloaded from the <a href="https://www.era.lib.ed.ac.uk/handle/1842/22980">Edinburgh Research Archive</a>. The source code for the models, graphs and statistical analyses can be found in the dedicated <a href="https://github.com/kevinstadler/thesis">github repository</a>.</p>
 			<p>If you're a linguist or cultural evolution researcher you might be interested in my <a href="/cultevo/"><i>cultevo</i> R package</a>.</p>
+			<p>Here is <a href="https://kevinstadler.github.io/publications.html">a full list of my publications</a>.</p>
 		</div>
 	</div>
 	<div class="section"><!-- #cartography -->
 		<div class="slide">
-			<p>I like maps, and I make them as well as tools for other people to make them with.</p>
-			<p>While I lived in Edinburgh I used to walk with the <a href="https://www.facebook.com/sundayadventure/">Sunday Adventure Club</a> and also exhibited some maps with <a href="http://theresidentsassociation.tumblr.com">The Residents Association</a>.</p>
-			<p>I should probably add the photo of me with the Japanese Geospatial Data Authority's mascot here. We are friends, even though I do find his flying map-carpet questionable.</p>
+			<div class="content">
+				<p>I like maps, and I make them as well as tools for other people to make them with.</p>
+				<p>While I lived in Edinburgh I used to walk with the <a href="https://www.facebook.com/sundayadventure/">Sunday Adventure Club</a> and also exhibited some maps with <a href="http://theresidentsassociation.tumblr.com">The Residents Association</a>.</p>
+				<p>I should probably add the photo of me with the Japanese Geospatial Data Authority's mascot here. We are friends, even though I do find his flying map-carpet questionable.</p>
+			</div>
 		</div>
 		<div class="slide">
-			<h2>borders</h2>
-			<img src="https://kevinstadler.github.io/borders/thumbnail.png" />
+			<div class="content overlay">
+				<div class="caption">
+					<h2>borders</h2>
+					<p>Might actually put an interactive map here.</p>
+				</div>
+				<div class="background">
+					<img src="https://kevinstadler.github.io/borders/thumbnail.png" />
+				</div>
+			</div>
 		</div>
 		<!-- future: flights i've flown -->
 		<div class="slide">
-			<h2>overlay</h2>
-			<img src="https://kevinstadler.github.io/remap/examples/thumbnail.png" />
+			<div class="content mixed">
+				<div>
+					<h2>overlay</h2>
+					<p>Explanation</p>
+				</div>
+				<img src="https://kevinstadler.github.io/remap/examples/thumbnail.png" />
+			</div>
 		</div>
 		<div class="slide">
-			<h2>alpinia</h2>
-			<div class="hasmedia">
-				<p><a href="https://github.com/kevinstadler/alpinia">alpinia</a> is a Python script wrapped around <a href="https://www.gdal.org">GDAL</a>'s hillshading algorithm whose sole purpose it is to allow easy creation of "comically exaggerated" relief maps. To the left is an example rendition of the mighty mountain range that is home to Greenwich Observatory.</p>
+			<div class="content mixed">
+				<div>
+					<h2>alpinia</h2>
+					<p><a href="https://github.com/kevinstadler/alpinia">alpinia</a> is a Python script wrapped around <a href="https://www.gdal.org">GDAL</a>'s hillshading algorithm whose sole purpose it is to allow easy creation of "comically exaggerated" relief maps. To the left is an example rendition of the mighty mountain range that is home to Greenwich Observatory.</p>
+				</div>
 				<img src="http://kevinstadler.github.io/alpinia/gallery/thumbnail.png" />
 			</div>
 		</div>
 		<div class="slide">
-			<h2><i>dem2stl</i></h2>
-			<p><a href="https://kevinstadler.github.io/dem2stl/">an R package</a></p>
+			<div class="content">
+				<h2><i>dem2stl</i></h2>
+				<p><a href="https://kevinstadler.github.io/dem2stl/">an R package</a>. Nice thumbnail/photo to be added later.</p>
+			</div>
 		</div>
 		<div class="slide">
-			<p>Did some data enrichment for the Open Data Day hackathon. Here is <a href="https://kevinstadler.github.io/bombdamage/">a live demo website</a>.</p>
+			<div class="content">
+				<p>Did some data enrichment for the Open Data Day hackathon. Here is <a href="https://kevinstadler.github.io/bombdamage/">a live demo website</a>.</p>
+			</div>
 		</div>
 	</div>
 	<div class="section"><!-- #sound -->
 		<div class="content">
 			<p>I've done sound recording and engineering for student radio, a podcast, and I play in a band or two.</p>
 			<p>Below are a couple of software projects with sound that I've done.</p>
+			<!-- https://github.com/kevinstadler/arduino-tap-midi-clock -->
 		</div>
 	</div>
 	<div class="section"><!-- #sonicgraygoo -->
-		<div class="content hasmedia">
-			<p>My apocalyptic interactive art installation <a href="https://github.com/kevinstadler/sonicgraygoo">sonic gray goo</a> was exhibited at <a href="http://hiddendoorblog.org">Hidden Door Festival</a> in Edinburgh in 2015.</p>
+		<div class="content mixed">
+			<div>
+				<p>My apocalyptic interactive art installation <a href="https://github.com/kevinstadler/sonicgraygoo">sonic gray goo</a> was exhibited at <a href="http://hiddendoorblog.org">Hidden Door Festival</a> in Edinburgh in 2015.</p>
+			</div>
 			<img src="img/sonicgraygoo.jpg" />
 		</div>
 	</div>
@@ -97,7 +123,7 @@ new fullpage('#fullpage', {
 	anchors: ['aboutme', 'research', 'cartography', 'sound', 'sonicgraygoo', 'processing', 'contact'],
 	autoScrolling: true,
 	scrollBar: true,
-	menu: '#nav',
+	menu: '#menu',
 	verticalCentered: false
 });
 </script>
