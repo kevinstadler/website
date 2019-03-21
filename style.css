@@ -13,7 +13,9 @@ nav {
 /* layouting common to all three content types */
 div.content {
 	/* centering would also be an option but not sure how it would work with fullPage.js */
-	margin: 20px;
+	margin: auto;
+    width: 80%;
+    padding: 50px;
 }
 
 div.mixed {
@@ -28,15 +30,27 @@ div.mixed img {
 	max-width: 60%;
 }
 
+/*works only for the about you, cannot be used in the cartography part
+probably because of the slider*/
+.right_img {
+	position: absolute;
+    right: 50px;
+}
+
 div.overlay {
-	
+	position: relative;
 }
 
 div.overlay > .background {
-
+    position: absolute;
 }
 
 div.overlay > .caption {
+    position: absolute;
+    background-color: rgba(189, 195, 199, 0.2);
+    z-index: 10;
+    padding: 30px;
+    color: white;
 }
 
 p {
@@ -57,4 +71,12 @@ a:visited {
 
 a:active { /* doesn't work with fullPage.js menu anchors, needs some more javascript magic */
 	color: #AA0000;
+}
+
+.fp-controlArrow.fp-prev {
+    left: 105px;
+}  
+
+.fp-controlArrow.fp-next {
+    right: 105px;
 }
