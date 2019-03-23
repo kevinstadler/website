@@ -73,6 +73,10 @@ a:active { /* doesn't work with fullPage.js menu anchors, needs some more javasc
 	color: #AA0000;
 }
 
+a.github {
+/*	background: url(images/github.png) no-repeat bottom; */
+}
+
 .fp-controlArrow.fp-prev {
     left: 105px;
 }  
