@@ -4,18 +4,19 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width">
 <title>kevin stadler</title>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.4/fullpage.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.5/fullpage.css" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 <link rel="alternate" type="application/atom+xml" title="blog feed" href="/feed.xml" />
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.4/fullpage.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.5/fullpage.js"></script>
 <base target="_blank" />
 </head>
 <body>
 <nav>
 	<ul id="menu">
 		<li data-menuanchor="home"><a href="#aboutme" target="_self">about me</a></li>
-		<li data-menuanchor="home"><a href="#cartography" target="_self">cartography</a></li>
-		<li data-menuanchor="home"><a href="#sound" target="_self">sound</a></li>
+		<li data-menuanchor="research"><a href="#research" target="_self">research</a></li>
+		<li data-menuanchor="cartography"><a href="#cartography" target="_self">cartography</a></li>
+		<li data-menuanchor="sound"><a href="#sound" target="_self">sound</a></li>
 		<li data-menuanchor="contact"><a href="#contact" target="_self">contact</a></li>
 	</ul>
 </nav>
@@ -134,7 +135,7 @@
 			<p>Readymade kitsch adaptogen, asymmetrical literally deep v thundercats gluten-free organic cray shoreditch cornhole. Cornhole affogato mixtape viral church-key artisan poutine. Prism fam keytar aesthetic, chia beard pop-up unicorn. Truffaut chicharrones before they sold out, poutine raw denim hexagon hammock kitsch selfies. Ugh butcher taxidermy subway tile four loko intelligentsia selvage. Chambray taiyaki cloud bread irony sartorial microdosing air plant prism actually mixtape.</p>
 			<p>Here, I still need to add the ability to send an email through a server-side script.</p>
 			<form>
-				<textarea id="contact"></textarea>
+				<textarea id="contactform"></textarea>
 				<input type="submit" id="submit">
 			</form>
 		</div>
@@ -143,12 +144,14 @@
 
 <script type="text/javascript">
 new fullpage('#fullpage', {
-	// licenseKey: TODO,
+	licenseKey: 'oobwH@p8',
 	anchors: ['aboutme', 'research', 'cartography', 'sound', 'sonicgraygoo', 'processing', 'contact'],
 	autoScrolling: true,
 	scrollBar: true,
 	menu: '#menu',
-	verticalCentered: false
+	verticalCentered: false,
+	onLeave: function(origin, destination, direction) {
+	}
 });
 </script>
 </body>
