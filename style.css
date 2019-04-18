@@ -84,3 +84,24 @@ a.github {
 .fp-controlArrow.fp-next {
     right: 105px;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  z-index: 100;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  padding: 8px;
+  background-color: #dddddd;
+  display: block;
+}
