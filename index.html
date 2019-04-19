@@ -11,15 +11,15 @@
 <base target="_blank" />
 </head>
 <body>
-
+<nav>
 	<ul id="menu">
-		<li data-menuanchor="home"><a href="#aboutme" target="_self">about me</a></li>
+		<li data-menuanchor="home" class="activeMenu"><a href="#aboutme" target="_self" >about me</a></li>
 		<li data-menuanchor="research"><a href="#research" target="_self">research</a></li>
 		<li data-menuanchor="cartography"><a href="#cartography" target="_self">cartography</a></li>
 		<li data-menuanchor="sound"><a href="#sound" target="_self">sound</a></li>
 		<li data-menuanchor="contact"><a href="#contact" target="_self">contact</a></li>
 	</ul>
-
+</nav>
 
 <div id="fullpage">
 	<div class="section"><!-- #aboutme -->
@@ -153,6 +153,17 @@ new fullpage('#fullpage', {
 	onLeave: function(origin, destination, direction) {
 	}
 });
+
+// Add active class to the current button (highlight it)
+var menu = document.getElementById("menu");
+var menuItems = menu.childNodes;
+for (var i = 0; i < menuItems.length; i++) {
+  menuItems[i].addEventListener("click", function() {
+  	var current = document.getElementsByClassName("activeMenu");
+  	current[0].className = current[0].className.replace("activeMenu", "");
+  	this.className += " activeMenu";
+  });
+}
 </script>
 </body>
 </html>

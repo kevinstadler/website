@@ -6,8 +6,13 @@ body {
 }
 
 nav {
-	/* TODO make pop-up menu on phone, top menu on desktop? */
-	display: none;
+	margin: 0;
+  padding: 0;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  z-index: 100;
 }
 
 /* layouting common to all three content types */
@@ -69,10 +74,6 @@ a:visited {
 	text-decoration: underline;
 }
 
-a:active { /* doesn't work with fullPage.js menu anchors, needs some more javascript magic */
-	color: #AA0000;
-}
-
 a.github {
 /*	background: url(images/github.png) no-repeat bottom; */
 }
@@ -89,19 +90,32 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
   top: 0;
-  overflow: hidden;
-  z-index: 100;
 }
 
 li {
   float: left;
+  background-color: #dddddd;
 }
 
 li a {
   padding: 8px;
-  background-color: #dddddd;
   display: block;
 }
+
+li a:visited, a:link {
+  color: black;
+  text-decoration: none;
+}
+
+.activeMenu, li a:hover {
+  background-color: white;
+  color: black;
+}
+
+/*to do: dropdown menu*/
+@media screen and (max-width: 600px) {
+  ul li {float: none;}
+}
+
+
