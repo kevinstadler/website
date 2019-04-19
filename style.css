@@ -108,7 +108,7 @@ li a:visited, a:link {
   text-decoration: none;
 }
 
-.activeMenu, li a:hover {
+li.active, li a:hover {
   background-color: white;
   color: black;
 }
