@@ -30,7 +30,7 @@ div.mixed {
 /*	flex-wrap: wrap; */	
 }
 
-div.mixed img {
+div.mixed > img {
 	margin: 30px;
 	max-width: 60%;
 }
@@ -122,17 +122,17 @@ li {
   background-color: #dddddd;
 }
 
-li a {
+li > a {
   padding: 8px;
   display: block;
 }
 
-li a:visited, a:link {
+li > a:visited, li > a:link {
   color: black;
   text-decoration: none;
 }
 
-li.active, li a:hover {
+li.active, li > a:hover {
   background-color: white;
   color: black;
 }
@@ -142,4 +142,12 @@ li.active, li a:hover {
   ul li {float: none;}
 }
 
+img.github, a.github > img {
+  content: url(https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg);
+  height: 0.9em;
+  width: 0.9em;
+}
 
+a.github::after {
+  content: ' view the source code';
+}
