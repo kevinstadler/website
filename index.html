@@ -8,6 +8,13 @@
 <link rel="stylesheet" type="text/css" href="style.css" />
 <link rel="alternate" type="application/atom+xml" title="blog feed" href="/feed.xml" />
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.5/fullpage.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-96498670-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-96498670-1');
+</script>
 <base target="_blank" />
 </head>
 <body>
@@ -131,7 +138,7 @@
 	<div class="section"><!-- #sonicgraygoo -->
 		<div class="content mixed">
 			<div>
-				<p>My apocalyptic interactive art installation <a href="https://github.com/kevinstadler/sonicgraygoo">sonic gray goo</a> was exhibited at <a href="http://hiddendoorblog.org">Hidden Door Festival</a> in Edinburgh in 2015.</p>
+				<p>My apocalyptic interactive art installation <a href="https://github.com/kevinstadler/sonicgraygoo">sonic gray goo</a> was exhibited at <a href="http://hiddendoorblog.org">Hidden Door Festival</a> in Edinburgh in 2015. (photo (c) <a href="https://www.instagram.com/acieleshky/">Aciel Eshky</a>)</p>
 			</div>
 			<img src="img/sonicgraygoo.jpg" />
 		</div>
@@ -159,6 +166,13 @@
 </div>
 
 <script type="text/javascript">
+var lastLoaded;
+function logLoad(id) {
+	if (lastLoaded) {
+//		gtag("event", "goto", {"event_label": location.hash, "value": zoom })
+	}
+	lastLoaded = id;
+}
 new fullpage('#fullpage', {
 	licenseKey: 'oobwH@p8',
 	anchors: ['aboutme', 'research', 'cartography', 'sound', 'sound', 'sound', 'contact'],
@@ -166,6 +180,12 @@ new fullpage('#fullpage', {
 	scrollBar: true,
 	menu: '#menu',
 	verticalCentered: false,
+	afterLoad: function (origin, destination, direction) {
+		logLoad(destination.index + '/' + destination.anchor)
+	},
+	afterSlideLoad: function (section, origin, destination, direction) {
+		logLoad(section.index + '/' + section.anchor + '/' + destination.index)
+	}
 });
 </script>
 </body>
