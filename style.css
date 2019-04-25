@@ -82,7 +82,7 @@ div.overlay > .caption {
     width: 100%;
 }
 
-p {
+p, div li {
 	text-align: justify;
 	min-width: 20em;
 	max-width: 40em;
@@ -110,29 +110,39 @@ a.github {
     right: 105px;
 }
 
-ul {
+div ul {
+  list-style-type: none;
+  padding: 2em;
+  text-indent: -2em;
+}
+
+div li:before {
+  content: "- ";
+}
+
+nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   top: 0;
 }
 
-li {
+nav li {
   float: left;
   background-color: #dddddd;
 }
 
-li > a {
+nav a {
   padding: 8px;
   display: block;
 }
 
-li > a:visited, li > a:link {
+nav a:visited, nav a:link {
   color: black;
   text-decoration: none;
 }
 
-li.active, li > a:hover {
+li.active, li.external, nav a:hover {
   background-color: white;
   color: black;
 }
