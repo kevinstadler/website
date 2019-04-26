@@ -30,7 +30,7 @@ div.mixed {
 /*	flex-wrap: wrap; */	
 }
 
-div.mixed > img {
+div.mixed > img, div.mixed > a {
 	margin: 30px;
 	max-width: 60%;
 }
