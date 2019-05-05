@@ -5,6 +5,15 @@ body {
 	line-height: 1.4;
 }
 
+h1 {
+	font-height: 2em;
+}
+
+h2 {
+	font-size: 1.5em;
+	margin-top: 0.5em;
+}
+
 nav {
 	margin: 0;
 	padding: 0;
@@ -107,7 +116,7 @@ div.overlay > .caption {
 }
 
 .img_overlay {
-		width: 100%;
+	width: 100%;
 }
 
 a:link, a:hover {
@@ -120,16 +129,19 @@ a:visited {
 	text-decoration: underline;
 }
 
-a.github {
-/*	background: url(images/github.png) no-repeat bottom; */
+.fp-controlArrow.fp-prev, .fp-controlArrow.fp-next {
+	border-top-width: 40px;
+	border-bottom-width: 40px;
+	border-left-color: #333a;
+	border-right-color: #333a;
 }
 
 .fp-controlArrow.fp-prev {
-		left: 105px;
-}  
+	left: 25px;
+}
 
 .fp-controlArrow.fp-next {
-		right: 105px;
+	right: 25px;
 }
 
 nav ul {
