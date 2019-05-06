@@ -11,7 +11,6 @@ h1 {
 
 h2 {
 	font-size: 1.5em;
-	margin-top: 0.5em;
 }
 
 nav {
@@ -42,24 +41,24 @@ div.mixed {
 	justify-content: center;
 }
 
-p, div li {
+p, div.content li {
 	text-align: justify;
 	min-width: 20em;
 	max-width: 40em;
 	width: 100%;
 }
 
-div ul {
+div.content ul {
 	list-style-type: none;
 	padding: 1em;
 	text-indent: -1em;
 }
 
-div li:before {
+div.content li:before {
 	content: "- ";
 }
 
-div li {
+div.content li {
 	max-width: 30em;
 	padding: 0.3em;
 }
@@ -137,11 +136,16 @@ a:visited {
 }
 
 .fp-controlArrow.fp-prev {
-	left: 25px;
+	left: 20px;
 }
 
 .fp-controlArrow.fp-next {
-	right: 25px;
+	right: 20px;
+}
+
+.fp-slidesNav.fp-bottom {
+    bottom: 50px;
+    text-align: center;
 }
 
 nav ul {
