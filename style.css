@@ -38,7 +38,7 @@ div.mixed {
 	align-items: center;
 	flex-wrap: wrap;
 	/* once content is wrapped, center-align it */
-	justify-content: center;
+	justify-content: space-between; /* center */
 }
 
 p, div.content li {
@@ -64,24 +64,26 @@ div.content li {
 }
 
 div.mixed > * {
-	margin: 30px;
+	margin: auto;
 	/* shrink down to 20em first before wrapping (TODO replace with pixel/screen measurement?) */
-	flex: 3 1 20em;
+	flex: 2 1 20em;
 	min-width: 20em;
 	max-width: 40em;
 	width: 100%;
 }
 
+/* the sibling adjacent to the mixed div (can be an <img> or <a> or ...) */
+div.mixed > * + * {
+	/* only apply margin to second content child so that all text-content stays left-aligned */
+	margin: 0 30px;
+	/* by default the flex-grow factor of 1 means the image will be secondary to the text (flex-grow 2) */
+	flex-grow: 1;
+	max-width: none;
+}
+
 img {
 	max-height: 100%;
 	max-width: 100%;
-}
-
-/* the sibling adjacent to the mixed div (can be an <img> or <a> or ...) */
-div.mixed > * + * {
-	/* by default the flex-grow factor of 1 means the image will be secondary to the text (flex-grow 3) */
-	flex-grow: 1;
-	max-width: none;
 }
 
 div.mixed > .prominent {
