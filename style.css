@@ -177,9 +177,33 @@ li.active, li.external, nav a:hover {
 	color: black;
 }
 
+nav select {
+	display: none;
+}
+
 /*to do: dropdown menu*/
 @media screen and (max-width: 600px) {
-	ul li {float: none;}
+	nav ul {
+		display: none;
+	}
+	
+	nav select {
+		display: block;
+		width: 100%;
+		background-color: #dddd;
+		border:none;
+		text-align: center;
+    	text-align-last: center;
+	}
+
+	nav &:after {
+      position: absolute;
+      content: "Menu";
+      right: 0;
+      bottom: -1em;
+
+    }
+
 }
 
 img.github, a.github > img {
