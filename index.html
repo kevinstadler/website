@@ -28,15 +28,7 @@ gtag('config', 'UA-96498670-1');
 		<li class="external"><a href="https://github.com/kevinstadler"><img class="github" /> github</a></li>
 		<li class="external"><a href="/blog">blog</a></li>
 	</ul>
-	<select onchange="if (this.value) window.location.href = this.value;">
-    	<option value="#aboutme">about me</option>
-    	<option value="#research">research</option>
-    	<option value="#cartography">cartography</option>
-    	<option value="#sound">sound</option>
-    	<option value="#contact">contact</option>
-    	<option value="https://github.com/kevinstadler">github</option>
-    	<option value="http://kevinstadler.github.io/blog/">blog</option>
-  	</select>
+	<img id="popupmenu">
 </nav>
 
 <div id="fullpage">
@@ -115,8 +107,9 @@ gtag('config', 'UA-96498670-1');
 				<div>
 					<h2>flights I've flown</h2>
 					<p>Explanation</p>
+					<a class="github" href="https://github.com/kevinstadler/flights"><img /></a>
 				</div>
-				<img class="prominent" src="https://kevinstadler.github.io/remap/examples/thumbnail.png" />
+				<a class="prominent" href="http://kevinstadler.github.io/flights/"><img class="prominent" src="https://kevinstadler.github.io/flights/thumbnail.png" /></a>
 			</div>
 		</div>
 		<div class="slide">
@@ -244,13 +237,15 @@ new fullpage('#fullpage', {
 	}
 });
 
-document.getElementById('contactsubmit').onclick = function(e) {
+var submitButton = document.getElementById('contactsubmit');
+submitButton.onclick = function(e) {
 	e.preventDefault();
 	let statusField = document.getElementById('contactstatus');
 	if (document.getElementById('contactcontent').value.trim().length == 0) {
 		statusField.textContent = "Message can't be empty";
 		return;
 	}
+	submitButton.disabled = true;
 	statusField.textContent = "Submitting...";
 	let formData = new FormData(document.getElementById('contactform'));
 	fetch('https://sukzessiv.net/~kevin/mail.php', {

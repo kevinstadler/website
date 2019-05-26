@@ -190,33 +190,34 @@ li.active, li.external, nav a:hover {
 	color: black;
 }
 
-nav select {
+#popupmenu {
 	display: none;
 }
 
-/*to do: dropdown menu*/
 @media screen and (max-width: 600px) {
-	nav ul {
-		display: none;
-	}
-	
-	nav select {
+	#popupmenu {
 		display: block;
-		width: 100%;
-		background-color: #dddd;
-		border:none;
-		text-align: center;
-    	text-align-last: center;
+		float: right;
+		width: 30px;
+		height: 30px;
+		padding: 8px;
+		background: #555 url(https://treehouse-blog.s3.amazonaws.com/Respond-Menu/img/menu-icon.png) center;
 	}
 
-	nav &:after {
-      position: absolute;
-      content: "Menu";
-      right: 0;
-      bottom: -1em;
+	nav > ul {
+		display: none;
+		position: fixed;
+		top: 46px;
+		right: 0px;
+	}
 
-    }
+	nav:hover > ul {
+		display: block;
+	}
 
+	nav li {
+		float: none;
+	}
 }
 
 img.github, a.github > img {
