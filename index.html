@@ -251,6 +251,7 @@ document.getElementById('contactsubmit').onclick = function(e) {
 		statusField.textContent = "Message can't be empty";
 		return;
 	}
+	statusField.textContent = "Submitting...";
 	let formData = new FormData(document.getElementById('contactform'));
 	fetch('https://sukzessiv.net/~kevin/mail.php', {
 		method: 'POST',
@@ -259,8 +260,6 @@ document.getElementById('contactsubmit').onclick = function(e) {
 		body: formData
 	}).then(response => {
 		if (response.ok) {
-			console.log(response);
-			response.text().then(text => console.log(text));
 			document.getElementById('contactform').style.display = "none";
 			document.getElementById('contactsubmit').style.display = "none";
 			statusField.textContent = "Thank you for your message, I'll be in touch!";
