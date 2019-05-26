@@ -254,7 +254,7 @@ document.getElementById('contactsubmit').onclick = function(e) {
 	let formData = new FormData(document.getElementById('contactform'));
 	fetch('https://sukzessiv.net/~kevin/mail.php', {
 		method: 'POST',
-		mode: 'no-cors',
+		mode: 'cors',
 		cache: 'no-cache',
 		body: formData
 	}).then(response => {
