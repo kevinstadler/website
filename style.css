@@ -2,7 +2,7 @@ body {
 	font-family: sans-serif;
 	background-color: #F0F0F0;
 	font-size: 14px;
-	line-height: 1.4;
+	line-height: 1.45;
 }
 
 h1 {
@@ -120,14 +120,23 @@ div.overlay > .caption {
 	width: 100%;
 }
 
-a:link, a:hover {
-	color: rgb(0, 0, 220);
+a {
+	color: rgb(50, 50, 170);
 	text-decoration: underline;
 }
 
 a:visited {
-	color: rgb(85, 26, 139);
+	color: rgb(50, 50, 170);
+}
+
+a:hover {
 	text-decoration: underline;
+	text-decoration-style: dashed;
+}
+
+/* don't style links which are just in-page navigation links */
+li > a {
+	text-decoration: none;
 }
 
 .fp-controlArrow.fp-prev, .fp-controlArrow.fp-next {
@@ -208,10 +217,21 @@ nav select {
 
 img.github, a.github > img {
 	content: url(https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg);
+	display: inline-block;
 	height: 0.9em;
 	width: 0.9em;
 }
 
+a.github {
+	text-decoration: none;
+	white-space: nowrap;
+}
+
 a.github::after {
 	content: ' view the source code';
+}
+
+textarea, input[type=text], input[type=email] {
+	padding: 3px;
+	margin: 5px;
 }

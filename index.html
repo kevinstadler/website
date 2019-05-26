@@ -45,7 +45,7 @@ gtag('config', 'UA-96498670-1');
 			<div>
 				<h1>kevin stadler</h1>
 				<p>Originally trained as a software engineer, I received a PhD in Linguistics & English Language from the University of Edinburgh in 2017. Apart from my research on <a href="#research" target="_self">modelling language change</a> I have also worked with (and on) open source software on a wide range of other topics, in particular <a href="#cartography" target="_self">cartography</a> and <a href="#sound" target="_self">sound</a>.</p>
-				<p>You can find a lot of the code I write over on my <a href="https://github.com/kevinstadler"><img class="github" /> GitHub profile</a>. I have <a href="/blog/">an irregularly updated blog</a>, and have previously also written for <a href="http://www.replicatedtypo.com">Replicated Typo</a>.</p>
+				<p>You can find a lot of the code I write over on my <a href="https://github.com/kevinstadler" style="white-space: nowrap;"><img class="github" />&nbsp;GitHub profile</a>. I have <a href="/blog/">an irregularly updated blog</a>, and have previously also written for <a href="http://www.replicatedtypo.com">Replicated Typo</a>.</p>
 			</div>
 			<img src="img/kevin.jpg" />
 		</div>
@@ -205,13 +205,14 @@ gtag('config', 'UA-96498670-1');
 	</div>
 	<div class="section"><!-- #contact -->
 		<div class="content">
-			<h2>contact</h2>
-			<p>Readymade kitsch adaptogen, asymmetrical literally deep v thundercats gluten-free organic cray shoreditch cornhole. Cornhole affogato mixtape viral church-key artisan poutine. Prism fam keytar aesthetic, chia beard pop-up unicorn. Truffaut chicharrones before they sold out, poutine raw denim hexagon hammock kitsch selfies. Ugh butcher taxidermy subway tile four loko intelligentsia selvage. Chambray taiyaki cloud bread irony sartorial microdosing air plant prism actually mixtape.</p>
-			<p>Here, I still need to add the ability to send an email through a server-side script.</p>
-			<form>
-				<textarea id="contactform"></textarea>
-				<input type="submit" id="submit">
+			<h2>contact me</h2>
+			<form id="contactform" target="_self">
+				<input type="text" name="name" placeholder="Your name">
+				<input type="email" name="email" placeholder="Your email"><br>
+				<textarea name="content" id="contactcontent" placeholder="Your message" rows="8" cols="60"></textarea><br>
+				<input type="hidden" name="token" value="foo">
 			</form>
+			<input type="submit" id="contactsubmit"> <span id="contactstatus"></span><noscript>You need to enable JavaScript to use this form!</noscript>
 		</div>
 	</div>
 </div>
@@ -224,6 +225,7 @@ function logLoad(id) {
 	}
 	lastLoaded = id;
 }
+
 new fullpage('#fullpage', {
 	licenseKey: 'oobwH@p8',
 	anchors: ['aboutme', 'research', 'cartography', 'sound', 'contact'],
@@ -240,6 +242,31 @@ new fullpage('#fullpage', {
 		logLoad(section.index + '/' + section.anchor + '/' + destination.index)
 	}
 });
+
+document.getElementById('contactsubmit').onclick = function(e) {
+	e.preventDefault();
+	let statusField = document.getElementById('contactstatus');
+	if (document.getElementById('contactcontent').value.trim().length == 0) {
+		statusField.textContent = "Message can't be empty";
+		return;
+	}
+	let formData = new FormData(document.getElementById('contactform'));
+	fetch('https://sukzessiv.net/~kevin/mail.php', {
+		method: 'POST',
+		cache: 'no-cache',
+		body: formData
+	}).then(response => {
+		if (response.ok) {
+			console.log(response);
+			response.text().then(text => console.log(text));
+			document.getElementById('contactform').style.display = "none";
+			document.getElementById('contactsubmit').style.display = "none";
+			statusField.textContent = "Thank you for your message, I'll be in touch!";
+		} else {
+			statusField.textContent = "Sorry, it looks like the contact form isn't working at the moment, please try again later...";
+		}
+	});
+}
 </script>
 </body>
 </html>
