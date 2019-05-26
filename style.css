@@ -23,6 +23,25 @@ nav {
 	z-index: 100;
 }
 
+a {
+	color: rgb(50, 50, 170);
+	text-decoration: underline;
+}
+
+a:visited {
+	color: rgb(50, 50, 170);
+}
+
+a:hover {
+	text-decoration: underline;
+	text-decoration-style: dashed;
+}
+
+/* don't style links which are just in-page navigation links */
+li > a {
+	text-decoration: none;
+}
+
 /* layouting common to all content types */
 div.content {
 	/* centering would also be an option but not sure how it would work with fullPage.js */
@@ -59,7 +78,7 @@ div.content li:before {
 }
 
 div.content li {
-	max-width: 30em;
+	max-width: 50em;
 	padding: 0.3em;
 }
 
@@ -108,7 +127,7 @@ div.overlay > .background {
 
 div.overlay > .caption {
 	position: absolute;
-	background-color: rgba(189, 195, 199, 0.5);
+	background-color: rgba(100, 100, 102, 0.5);
 	z-index: 10;
 	padding: 30px;
 	color: white;
@@ -116,27 +135,12 @@ div.overlay > .caption {
 	right: 0;
 }
 
+.caption a {
+	color: rgb(220, 220, 255);
+}
+
 .img_overlay {
 	width: 100%;
-}
-
-a {
-	color: rgb(50, 50, 170);
-	text-decoration: underline;
-}
-
-a:visited {
-	color: rgb(50, 50, 170);
-}
-
-a:hover {
-	text-decoration: underline;
-	text-decoration-style: dashed;
-}
-
-/* don't style links which are just in-page navigation links */
-li > a {
-	text-decoration: none;
 }
 
 .fp-controlArrow.fp-prev, .fp-controlArrow.fp-next {
