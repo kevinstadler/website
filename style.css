@@ -74,7 +74,7 @@ div.content ul {
 }
 
 div.content li:before {
-	content: "- ";
+	content: "⤖ ";
 }
 
 div.content li {
@@ -127,7 +127,7 @@ div.overlay > .background {
 
 div.overlay > .caption {
 	position: absolute;
-	background-color: rgba(100, 100, 102, 0.5);
+	background-color: rgba(100, 100, 102, 0.7);
 	z-index: 10;
 	padding: 30px;
 	color: white;
@@ -163,7 +163,7 @@ div.overlay > .caption {
     text-align: center;
 }
 
-nav ul {
+nav > ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -190,12 +190,12 @@ li.active, li.external, nav a:hover {
 	color: black;
 }
 
-#popupmenu {
+#menuicon {
 	display: none;
 }
 
 @media screen and (max-width: 600px) {
-	#popupmenu {
+	#menuicon {
 		display: block;
 		float: right;
 		width: 30px;
@@ -204,32 +204,34 @@ li.active, li.external, nav a:hover {
 		background: #555 url(https://treehouse-blog.s3.amazonaws.com/Respond-Menu/img/menu-icon.png) center;
 	}
 
-	nav > ul {
+	nav ul {
 		display: none;
 		position: fixed;
 		top: 46px;
 		right: 0px;
 	}
 
+	#menu > li {
+		float: none;
+	}
+
 	nav:hover > ul {
 		display: block;
 	}
-
-	nav li {
-		float: none;
-	}
 }
 
-img.github, a.github > img {
-	content: url(https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg);
-	display: inline-block;
-	height: 0.9em;
-	width: 0.9em;
-}
-
-a.github {
+a.octo, a.github {
 	text-decoration: none;
 	white-space: nowrap;
+	background-image: url(https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg);
+	background-position: left;
+	background-repeat: no-repeat;
+	background-size: 0.9em;
+	padding-left: 1.2em;
+}
+
+nav a.octo {
+	margin-left: 8px;
 }
 
 a.github::after {
@@ -239,4 +241,5 @@ a.github::after {
 textarea, input[type=text], input[type=email] {
 	padding: 3px;
 	margin: 5px;
+	max-width: 100%;
 }
