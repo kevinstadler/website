@@ -117,22 +117,25 @@ probably because of the slider*/
 	right: 50px;
 }
 
-div.overlay {
-	position: relative;
-}
-
-div.overlay > .background {
+@media screen and (min-width: 1000px) {
+	div.overlay {
 		position: relative;
-}
+	}
 
-div.overlay > .caption {
-	position: absolute;
-	background-color: rgba(100, 100, 102, 0.7);
-	z-index: 10;
-	padding: 30px;
-	color: white;
-	bottom: 5px;
-	right: 0;
+	div.overlay > .background {
+			position: relative;
+	}
+
+	div.overlay > .caption {
+		display: block;
+		position: absolute;
+		background-color: rgba(100, 100, 102, 0.7);
+		z-index: 10;
+		padding: 30px;
+		color: white;
+		bottom: 5px;
+		right: 0;
+	}
 }
 
 .caption a {
