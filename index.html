@@ -28,7 +28,16 @@ gtag('config', 'UA-96498670-1');
 		<li class="external"><a href="https://github.com/kevinstadler" class="octo">github</a></li>
 		<li class="external"><a href="/blog">blog</a></li>
 	</ul>
-	<img id="menuicon">
+	<svg id="menuicon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<g>
+			<rect x="0" y="12.5" width="15" height="15" />
+			<rect x="0" y="42.5" width="15" height="15" />
+			<rect x="0" y="72.5" width="15" height="15" />
+			<rect x="30" y="12.5" width="70" height="15" />
+			<rect x="30" y="42.5" width="70" height="15" />
+			<rect x="30" y="72.5" width="70" height="15" />
+		</g>
+	</svg>
 </nav>
 
 <div id="fullpage">
@@ -97,9 +106,9 @@ gtag('config', 'UA-96498670-1');
 			<div class="content overlay">
 				<div class="caption">
 					<h2>borders</h2>
-					<p>Might actually put an interactive map here. <a class="github" href="https://github.com/kevinstadler/borders"></a></p>
+					<p>On most political maps produced in modern times, nation states and other geo-political bodies are represented as homogeneous slabs that have no internal structure: the inner city of the capital is as much part of the country as its most deserted hinterland. <i>borders</i> explores a more meaningful way of conceiving of a nation in social terms, as the imagined community of all individuals who consider themselves to belong to the same nation. Instead of representing a country as a uniform territory, the map only considers areas that are actually inhabited by humans, shaded according to their population density. <a class="github" href="https://github.com/kevinstadler/borders"></a></p>
 				</div>
-				<img class="background img_overlay" src="https://kevinstadler.github.io/borders/thumbnail.png" />
+				<img class="background img_overlay" src="https://kevinstadler.github.io/borders/thumbnail.png" alt="Example screenshot of the borders map" />
 			</div>
 		</div>
 		<div class="slide">
@@ -109,43 +118,47 @@ gtag('config', 'UA-96498670-1');
 					<p>Explanation</p>
 					<a class="github" href="https://github.com/kevinstadler/flights"></a>
 				</div>
-				<a class="prominent" href="http://kevinstadler.github.io/flights/"><img class="prominent" src="https://kevinstadler.github.io/flights/thumbnail.png" /></a>
+				<a class="prominent" href="http://kevinstadler.github.io/flights/"><img class="prominent" src="https://kevinstadler.github.io/flights/thumbnail.png" alt="Example screenshot of the flights I've flown map"  /></a>
 			</div>
 		</div>
 		<div class="slide">
 			<div class="content mixed">
 				<div>
 					<h2>overlay</h2>
-					<p>As both an avid flâneur and admirer of maps I’ve grappled with how cities differ on two levels: how we experience them directly, as well as how we perceive or recognize them based on cartographic representations. While the qualitative comparison of the “character” of different places is common practice, the arguably more appropriate quantitative juxtaposition of their geographies isn’t.</p>
-					<p>In order to bring these two levels of comparison closer together I’ve been playing with representations which overlay different places onto each other while maintaining comparable projections and scales, something that modern web maps are unfortunately not geared towards. My favourite outcome of this tinkering is the map on the right, which shows Oxford in the United Kingdom as well the 18 Oxfords found across the United States, all superimposed on one another.</p>
+					<!--p>As both an avid flâneur and admirer of maps I’ve grappled with how cities differ on two levels: how we experience them directly, as well as how we perceive or recognize them based on cartographic representations.--><p>While the qualitative comparison of the “character” of different places is common practice, the arguably more appropriate quantitative juxtaposition of their geographies isn’t. In order to bring these two levels of comparison closer together I’ve been playing with representations which overlay different places onto each other while maintaining comparable projections and scales<!--, something that modern web maps are unfortunately not geared towards-->. My favourite outcome of this tinkering is this map showing Oxford in the United Kingdom as well the 18 Oxfords found across the United States, all superimposed on one another.</p>
 					<a class="github" href="https://github.com/kevinstadler/remap#usage-overlaypy"></a>
 				</div>
-				<a class="prominent" href="https://github.com/kevinstadler/remap#usage-overlaypy"><img src="https://kevinstadler.github.io/remap/examples/thumbnail.png" /></a>
+				<a class="prominent" href="https://github.com/kevinstadler/remap#usage-overlaypy"><img src="https://kevinstadler.github.io/remap/examples/thumbnail.png" alt="A schematic map showing the outline of Oxford in the United Kingdom as well the 18 Oxfords found across the United States" /></a>
 			</div>
 		</div>
 		<div class="slide">
 			<div class="content mixed">
 				<div>
 					<h2>alpinia</h2>
-					<p><a href="https://github.com/kevinstadler/alpinia">alpinia</a> is a Python script wrapped around <a href="https://www.gdal.org">GDAL</a>'s hillshading algorithm whose sole purpose it is to allow easy creation of comically exaggerated relief maps. The example shows the mighty mountain range that is home to Greenwich Observatory.</p>
+					<p>alpinia is a Python script wrapped around <a href="https://www.gdal.org">GDAL</a>'s hillshading algorithm whose sole purpose it is to allow easy creation of comically exaggerated relief maps. The example shows the mighty mountain range that is home to Greenwich Observatory.</p>
+					<a class="github" href="https://github.com/kevinstadler/alpinia"></a>
 				</div>
-				<a href="https://github.com/kevinstadler/alpinia"><img src="https://kevinstadler.github.io/alpinia/gallery/thumbnail.png" /></a>
-			</div>
-		</div>
-		<div class="slide">
-			<div class="content">
-				<h2><code>dem2stl</code> R package</h2>
-				<p><a href="https://kevinstadler.github.io/dem2stl/">an R package</a>. Nice thumbnail/photo to be added later.</p>
-				<a class="github" href="https://github.com/processing/dem2stl"></a>
+				<a href="https://github.com/kevinstadler/alpinia"><img src="https://kevinstadler.github.io/alpinia/gallery/thumbnail.png" alt="Extract from a comically exaggerated relief map of Greenwich, South-East London" /></a>
 			</div>
 		</div>
 		<div class="slide">
 			<div class="content mixed">
 				<div>
+					<h2><code>dem2stl</code> R package</h2>
+					<p>This R package provides functions to convert digital elevation map (dem) files to .stl (and other) 3d-printable model files. It supports the generation of arbitrary (i.e. non-rectangular) shapes, such as countries or continents, and the generated models exhibit the correct curvature of the respective landmass on the Earth spheroid. Here's a 3D print of the contiguous United States.</p>
+					<a class="github" href="https://github.com/kevinstadler/dem2stl"></a>
+				</div>
+				<a href="https://github.com/kevinstadler/dem2stl"><img src="img/dem2stl.jpg" alt="Photo of a 3D print of the contiguous United States" /></a>
+			</div>
+		</div>
+		<div class="slide">
+			<div class="content mixed">
+				<div>
+					<h2>OpenDataDay hackathon</h2>
 					<p>Together with my good friend <a href="http://a-na.net">Ana Jeli&ccaron;i&cdot;</a> I participated in the Open Data hackathon held by the <a href="https://www.oeaw.ac.at/acdh/">Austrian Center for Digital Humanities</a>. Our project consisted of automatic data enrichment of a historical map of war damage to buildings in Vienna, as well as the creation of an <a href="https://kevinstadler.github.io/bombdamage/">interactive online map</a> to explore those damages relative to contemporary maps.</p>
 					<a class="github" href="https://github.com/kevinstadler/bombdamage"></a>
 				</div>
-				<a href="https://kevinstadler.github.io/bombdamage/"><img src="img/opendataday.jpg" /></a>
+				<a href="https://kevinstadler.github.io/bombdamage/"><img src="img/opendataday.jpg" alt="Example screenshot of our interactive online map for exploring World War II damage to buildings in Vienna" /></a>
 			</div>
 		</div>
 	</div>
@@ -154,11 +167,11 @@ gtag('config', 'UA-96498670-1');
 			<div class="content">
 				<div>
 					<h2>sound</h2>
-					<p>Music and sound are a life-long hobby of mine. Apart from sound recording and engineering for student radio and playing in a band or two, I have also interacted with auditory things in various other capacities, such as:</p>
+					<p>Music and sound are a life-long hobby of mine. Apart from sound recording and engineering for student radio and playing in a band or two, I have built auditory things of various kinds, including but not limited to:</p>
 					<ul>
-						<li><a href="#sound/1" target="_self">maintaining the official sound synthesis library for Processing</a></li>
-						<li><a href="#sound/2" target="_self">building audio-visual art installations</a></li>
-						<li><a href="#sound/3" target="_self">designing an Arduino-based tap-driven MIDI clock</a></li>
+						<li><a href="#sound/1" target="_self">the official sound synthesis library for Processing</a></li>
+						<li><a href="#sound/2" target="_self">audio-visual art installations</a></li>
+						<li><a href="#sound/3" target="_self">an Arduino-based tap-driven MIDI clock</a></li>
 					</ul>
 					<p>Together with my friend <a href="https://www.etsy.com/shop/BabyDearHarvest">Megan Brevig</a> I used to run the student radio show <a href="https://www.mixcloud.com/songstofallasleepto/">songs to fall asleep to</a>. Apart from singing and playing guitar in a band called <a href="https://sickkidsofedinburgh.bandcamp.com">sick kids of edinburgh</a> I was previously also a member of the ever-(r)evolving <a href="https://nicerchurch.bandcamp.com">Nice Church</a>.</p>
 				</div>
@@ -189,10 +202,10 @@ gtag('config', 'UA-96498670-1');
 			<div class="content mixed">
 				<div>
 					<h2>arduino tap midi clock</h2>
-					<p>I've designed a built an Arduino-based MIDI beat clock driver which can be controlled by tapping a button or pedal (such as a digital keyboard sustain pedal) to drive drum machines or arpeggiators.</p>
+					<p>An <a href="https://store.arduino.cc/usa/arduino-nano">Arduino Nano</a>-based MIDI beat clock driver which can be controlled by tapping a button or pedal (such as a digital keyboard sustain pedal) to control drum machines or other MIDI-driven arpeggiators.</p>
 					<a class="github" href="https://github.com/kevinstadler/arduino-tap-midi-clock"></a>
 				</div>
-				<img src="https://raw.githubusercontent.com/kevinstadler/arduino-tap-midi-clock/master/arduino-tap-midi-clock.jpg" />
+				<a href="https://github.com/kevinstadler/arduino-tap-midi-clock"><img src="https://raw.githubusercontent.com/kevinstadler/arduino-tap-midi-clock/master/arduino-tap-midi-clock.jpg" alt="Photo of a working tap midi clock (Arduino Nano plus hardware)" /></a>
 			</div>
 		</div>
 	</div>
@@ -240,6 +253,7 @@ var nav = document.getElementsByTagName('nav')[0];
 var menu = document.getElementById('menu');
 // have to explicitly deactivate 'hover' on phones after clicking on a menu item
 menu.onclick = function(e) {
+	console.log(nav);
 	// briefly hide nav so that it loses its hover
 	nav.style.display = 'none';
 	nav.style.display = 'block';

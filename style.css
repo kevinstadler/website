@@ -198,16 +198,17 @@ li.active, li.external, nav a:hover {
 	#menuicon {
 		display: block;
 		float: right;
-		width: 30px;
-		height: 30px;
+		width: 40px;
+		height: 40px;
 		padding: 8px;
-		background: #555 url(https://treehouse-blog.s3.amazonaws.com/Respond-Menu/img/menu-icon.png) center;
+		background: #555;
+		fill: #fff;
 	}
 
 	nav ul {
 		display: none;
 		position: fixed;
-		top: 46px;
+		top: 48px;
 		right: 0px;
 	}
 
