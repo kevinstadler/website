@@ -245,5 +245,10 @@ a.github::after {
 textarea, input[type=text], input[type=email] {
 	padding: 3px;
 	margin: 5px;
-	max-width: 100%;
+	width: 180px;
+}
+
+textarea {
+	width: 100%;
+	max-width: 80ch;
 }
