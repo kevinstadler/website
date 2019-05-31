@@ -6,7 +6,7 @@ body {
 }
 
 h1 {
-	font-height: 2em;
+	font-size: 2em;
 }
 
 h2 {
@@ -60,7 +60,7 @@ div.mixed {
 	justify-content: center;
 }
 
-p, div.content li {
+h1, h2, p, div.content li {
 	text-align: justify;
 	min-width: 20em;
 	max-width: 40em;
@@ -101,9 +101,10 @@ div.mixed > * {
 	max-width: 40em;
 	margin: 8px 25px;
 	/* keep aspect ratio of flexed images */
+	object-fit: scale-down;
 	width: 100%;
-	object-fit: contain;
-	/* todo: stop link element with small image from filling entire width */
+	/* inline (link) elements fill entire width, so center (image) content in case they're not as wide */
+	text-align: center;
 }
 
 /* the sibling adjacent to the mixed div (can be an <img> or <a> or ...) */
@@ -203,9 +204,14 @@ nav a:visited, nav a:link {
 	text-decoration: none;
 }
 
-li.active, li.external, nav a:hover {
+li.active, nav a:hover {
 	background-color: white;
 	color: black;
+}
+
+li.external {
+	color: black;
+	font-style: italic;
 }
 
 #menuicon {
@@ -239,7 +245,7 @@ li.active, li.external, nav a:hover {
 	}
 }
 
-a.octo, a.github {
+.octo, a.github {
 	text-decoration: none;
 	white-space: nowrap;
 	background-image: url(https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg);
@@ -247,10 +253,6 @@ a.octo, a.github {
 	background-repeat: no-repeat;
 	background-size: 0.9em;
 	padding-left: 1.2em;
-}
-
-nav a.octo {
-	margin-left: 8px;
 }
 
 a.github {
