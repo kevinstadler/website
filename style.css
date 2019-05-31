@@ -57,7 +57,7 @@ div.mixed {
 	align-items: center;
 	flex-wrap: wrap;
 	/* once content is wrapped, center-align it */
-	justify-content: space-between; /* center */
+	justify-content: center;
 }
 
 p, div.content li {
@@ -82,19 +82,34 @@ div.content li {
 	padding: 0.3em;
 }
 
+div.content ul.linklist {
+	list-style-type: disc;
+	padding: 0;
+	text-indent: 0;
+	line-height: 0.9em;
+	margin-left: 20px;
+}
+
+div.content ul.linklist li:before {
+	content: "";
+}
+
 div.mixed > * {
-	margin: auto;
 	/* shrink down to 20em first before wrapping (TODO replace with pixel/screen measurement?) */
 	flex: 2 1 20em;
 	min-width: 20em;
 	max-width: 40em;
+	margin: 8px 25px;
+	/* keep aspect ratio of flexed images */
 	width: 100%;
+	object-fit: contain;
+	/* todo: stop link element with small image from filling entire width */
 }
 
 /* the sibling adjacent to the mixed div (can be an <img> or <a> or ...) */
 div.mixed > * + * {
 	/* only apply margin to second content child so that all text-content stays left-aligned */
-	margin: 0 30px;
+/*	padding: 0 50px;
 	/* by default the flex-grow factor of 1 means the image will be secondary to the text (flex-grow 2) */
 	flex-grow: 1;
 	max-width: none;
@@ -236,6 +251,10 @@ a.octo, a.github {
 
 nav a.octo {
 	margin-left: 8px;
+}
+
+a.github {
+	float: right;
 }
 
 a.github::after {
