@@ -1,7 +1,7 @@
 body {
 	font-family: sans-serif;
 	background-color: #F0F0F0;
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 1.45;
 }
 
@@ -232,7 +232,7 @@ li.external {
 	nav ul {
 		display: none;
 		position: fixed;
-		top: 48px;
+		top: 56px;
 		right: 0px;
 	}
 
@@ -272,4 +272,8 @@ textarea, input[type=text], input[type=email] {
 textarea {
 	width: 100%;
 	max-width: 80ch;
+}
+
+.footer {
+	font-size: 90%;
 }
