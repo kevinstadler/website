@@ -44,10 +44,7 @@ li > a {
 
 /* layouting common to all content types */
 div.content {
-	/* centering would also be an option but not sure how it would work with fullPage.js */
-	margin: auto;
-	width: 80%;
-	padding: 50px;
+	padding: 80px;
 	padding-top: 0px;
 }
 
@@ -60,16 +57,16 @@ div.mixed {
 	justify-content: center;
 }
 
-h1, h2, p, div.content li {
+h1, h2, p {
 	text-align: justify;
-	min-width: 20em;
+	/* roundabout-implementation of min(100%, 40em) */
 	max-width: 40em;
 	width: 100%;
 }
 
 div.content ul {
 	list-style-type: none;
-	padding: 1em;
+	padding-left: 1em;
 	text-indent: -1em;
 }
 
@@ -78,7 +75,6 @@ div.content li:before {
 }
 
 div.content li {
-	max-width: 50em;
 	padding: 0.3em;
 }
 
@@ -122,15 +118,10 @@ img {
 }
 
 div.mixed > .prominent {
-	min-width: 30em;
+	/* roundabout-implementation of min(100%, 30em) */
+	max-width: 100%;
+	width: calc(100% - 30em);
 	flex-grow: 10;
-}
-
-/*works only for the about you, cannot be used in the cartography part
-probably because of the slider*/
-.right_img {
-	position: absolute;
-	right: 50px;
 }
 
 @media screen and (min-width: 1000px) {
@@ -222,9 +213,10 @@ li.external {
 	#menuicon {
 		display: block;
 		float: right;
-		width: 40px;
-		height: 40px;
-		padding: 8px;
+		width: 30px;
+		height: 30px;
+		padding: 7px;
+		margin: 15px;
 		background: #555;
 		fill: #fff;
 	}
@@ -232,7 +224,7 @@ li.external {
 	nav ul {
 		display: none;
 		position: fixed;
-		top: 56px;
+		top: 59px;
 		right: 0px;
 	}
 
