@@ -44,11 +44,7 @@ li > a {
 
 /* layouting common to all content types */
 div.content {
-	padding: 80px;
-	padding-top: 0px;
-}
-
-div.mixed {
+	padding: 0 3vw 0 3vw;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -75,6 +71,7 @@ div.content li:before {
 }
 
 div.content li {
+	text-align: initial;
 	padding: 0.3em;
 }
 
@@ -90,7 +87,7 @@ div.content ul.linklist li:before {
 	content: "";
 }
 
-div.mixed > * {
+div.content > * {
 	/* shrink down to 20em first before wrapping (TODO replace with pixel/screen measurement?) */
 	flex: 2 1 20em;
 	min-width: 20em;
@@ -104,7 +101,7 @@ div.mixed > * {
 }
 
 /* the sibling adjacent to the mixed div (can be an <img> or <a> or ...) */
-div.mixed > * + * {
+div.content > * + * {
 	/* only apply margin to second content child so that all text-content stays left-aligned */
 /*	padding: 0 50px;
 	/* by default the flex-grow factor of 1 means the image will be secondary to the text (flex-grow 2) */
@@ -117,9 +114,9 @@ img {
 	max-width: 100%;
 }
 
-div.mixed > .prominent {
+div.content > .prominent {
 	/* roundabout-implementation of min(100%, 30em) */
-	max-width: 100%;
+	max-width: fit-content;
 	width: calc(100% - 30em);
 	flex-grow: 10;
 }
@@ -161,11 +158,11 @@ div.mixed > .prominent {
 }
 
 .fp-controlArrow.fp-prev {
-	left: 20px;
+	left: 2vw;
 }
 
 .fp-controlArrow.fp-next {
-	right: 20px;
+	right: 2vw;
 }
 
 .fp-slidesNav.fp-bottom {
@@ -210,13 +207,18 @@ li.external {
 }
 
 @media screen and (max-width: 600px) {
+	.hide-on-small-screens {
+		display: none;
+	}
+
 	#menuicon {
 		display: block;
-		float: right;
+		position: fixed;
+		top: 15px;
+		right: 15px;
 		width: 30px;
 		height: 30px;
 		padding: 7px;
-		margin: 15px;
 		background: #555;
 		fill: #fff;
 	}
@@ -234,6 +236,10 @@ li.external {
 
 	nav:hover > ul {
 		display: block;
+	}
+
+	div.content > *, div.content > .prominent {
+		max-width: 60vw;
 	}
 }
 
@@ -255,10 +261,13 @@ a.github::after {
 	content: ' view the source code';
 }
 
+form {
+	text-align: initial;
+}
+
 textarea, input[type=text], input[type=email] {
-	padding: 3px;
-	margin: 5px;
-	width: 180px;
+	margin: 0 1em 1em 0;
+	width: 15em;
 }
 
 textarea {
