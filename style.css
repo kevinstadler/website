@@ -16,8 +16,7 @@ h2 {
 nav {
 	margin: 0;
 	padding: 0;
-	position: -webkit-sticky; /* Safari */
-	position: sticky;
+	position: fixed;
 	top: 0;
 	overflow: hidden;
 	z-index: 100;
@@ -106,7 +105,8 @@ div.content > * + * {
 /*	padding: 0 50px;
 	/* by default the flex-grow factor of 1 means the image will be secondary to the text (flex-grow 2) */
 	flex-grow: 1;
-	max-width: none;
+	max-width: fit-content;
+	max-height: 80vh;
 }
 
 img {
