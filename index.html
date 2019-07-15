@@ -20,8 +20,8 @@ gtag('config', 'UA-96498670-1');
 <body>
 <nav>
 	<ul id="menu">
-		<li data-menuanchor="aboutme" class="active"><a href="#aboutme" target="_self" >about me</a></li>
-		<li data-menuanchor="research"><a href="#research" target="_self">research</a></li>
+		<li data-menuanchor="home" class="active"><a href="#home" target="_self" >about me</a></li>
+		<li data-menuanchor="academia"><a href="#academia" target="_self">academia</a></li>
 		<li data-menuanchor="cartography"><a href="#cartography" target="_self">cartography</a></li>
 		<li data-menuanchor="sound"><a href="#sound" target="_self">sound</a></li>
 		<li data-menuanchor="contact"><a href="#contact" target="_self">contact</a></li>
@@ -41,17 +41,17 @@ gtag('config', 'UA-96498670-1');
 </nav>
 
 <div id="fullpage">
-	<div class="section"><!-- #aboutme -->
+	<div class="section" data-anchor="home">
 		<div class="content">
 			<div>
 				<h1>Kevin Stadler</h1>
-				<p>Originally trained as a software engineer, I received a PhD in Linguistics & English Language from the University of Edinburgh in 2017. Apart from my research on <a href="#research" target="_self">modelling language change</a> I have also worked with (and on) open source software on a wide range of other topics, in particular <a href="#cartography" target="_self">cartography</a> and <a href="#sound" target="_self">sound</a>.</p>
+				<p>Originally trained as a software engineer, I went on to do a PhD in Linguistics & English Language at the University of Edinburgh. Apart from my academic research on <a href="#academia" target="_self">modelling language change</a> I have also worked with (and on) open source software on a wide range of other topics, in particular <a href="#cartography" target="_self">cartography</a> and <a href="#sound" target="_self">sound</a>.</p>
 				<p>You can find a lot of the code I write over on my <a href="https://github.com/kevinstadler" class="octo">GitHub profile</a>. I have <a href="/blog/">an irregularly updated blog</a>, and have previously also written for <a href="http://www.replicatedtypo.com">Replicated Typo</a>.</p>
 			</div>
 			<img src="img/kevin.jpg" alt="A photo of me" />
 		</div>
 	</div>
-	<div class="section"><!-- #research -->
+	<div class="section" data-anchor="academia">
 		<div class="slide">
 			<div class="content">
 				<div>
@@ -59,14 +59,14 @@ gtag('config', 'UA-96498670-1');
 					<p>I hold a PhD in Linguistics & English Language from the University of Edinburgh, where I wrote my thesis on language variation and change from a cultural evolutionary perspective, supervised by <a href="http://www.lel.ed.ac.uk/~simon/">Simon Kirby</a>, <a href="http://www.lel.ed.ac.uk/~kenny/">Kenny Smith</a> and <a href="http://www2.ph.ed.ac.uk/~rblythe3/">Richard Blythe</a> at the <a href="http://www.lel.ed.ac.uk/cle/">Centre for Language Evolution</a>.</p>
 					<p>You might be interested in:</p>
 					<ul>
-						<li><a href="#research/1" target="_self">my thesis work on the dynamics of language change</a></li>
-						<li><a href="#research/2" target="_self">the <code>cultevo</code> R package for cultural evolution research</a></li>
-						<li><a href="#research/3" target="_self">my teaching and tutoring experience</a></li>
+						<li><a href="#academia/publications" target="_self">my thesis work on the dynamics of language change</a></li>
+						<li><a href="#academia/cultevo" target="_self">the <code>cultevo</code> R package for cultural evolution research</a></li>
+						<li><a href="#academia/teaching" target="_self">my teaching and tutoring experience</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		<div class="slide">
+		<div class="slide" data-anchor="publications">
 			<div class="content">
 				<div>
 					<h2>thesis & publications</h2>
@@ -76,7 +76,7 @@ gtag('config', 'UA-96498670-1');
 				</div>
 			</div>
 		</div>
-		<div class="slide">
+		<div class="slide" data-anchor="cultevo">
 			<div class="content">
 				<div>
 					<h2><code>cultevo</code> <a href="https://kevinstadler.github.io/cultevo/"><img src="https://cranlogs.r-pkg.org/badges/cultevo" alt="Package download count badge" title="Package download statistics from CRAN" /></a></h2>
@@ -91,17 +91,25 @@ gtag('config', 'UA-96498670-1');
 			</div>
 		</div>
 
-		<div class="slide">
+		<div class="slide" data-anchor="teaching">
 			<div class="content">
 				<div>
 					<h2>teaching</h2>
-					<p>I have previously tutored courses on <i>Introduction to linguistics</i>, <i>Phonetic analysis and empirical methods (in sociolinguistics)</i>, <i>History of the Indo-European languages</i>, <i>Introduction to algorithms & data structures</i>, <i>Introduction to programming (in Java)</i> as well as taught lectures on <i>Statistics & methods of scientific research</i>.</p>
+					<p>I have previously taught lectures and tutored courses on a wide range of topics, including:
+						<ul style="font-style: italic">
+							<li>Statistics & methods of scientific research</li>
+							<li>Introduction to linguistics</li>
+							<li>Phonetic analysis and empirical methods (for sociolinguistics)</li>
+							<li>History of the Indo-European languages</li>
+							<li>Introduction to algorithms & data structures</li>
+							<li>Introduction to programming</li>
+						</ul>
 					<p>In recognition of my participation in training activities for teaching in higher education I was accepted as an Associate Fellow of the <a href="http://www.heacademy.ac.uk">Higher Education Academy</a>.</p>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="section"><!-- #cartography -->
+	<div class="section" data-anchor="cartography">
 		<div class="slide">
 			<div class="content">
 				<div>
@@ -117,7 +125,7 @@ gtag('config', 'UA-96498670-1');
 				</div-->
 			</div>
 		</div>
-		<div class="slide">
+		<div class="slide" data-anchor="borders">
 			<div class="content">
 				<div>
 					<h2><i>borders</i></h2>
@@ -128,7 +136,7 @@ gtag('config', 'UA-96498670-1');
 				<a class="prominent" href="https://kevinstadler.github.io/borders/"><img src="https://kevinstadler.github.io/borders/thumbnail.png" alt="Example screenshot of the borders map" /></a>
 			</div>
 		</div>
-		<div class="slide">
+		<div class="slide" data-anchor="dem2stl">
 			<div class="content">
 				<div>
 					<h2><code>dem2stl</code></h2>
@@ -139,7 +147,7 @@ gtag('config', 'UA-96498670-1');
 				<a href="https://github.com/kevinstadler/dem2stl"><img src="https://kevinstadler.github.io/dem2stl/example.jpg" alt="Photo of a 3D print of the contiguous United States" /></a>
 			</div>
 		</div>
-		<div class="slide">
+		<div class="slide" data-anchor="opendata">
 			<div class="content">
 				<div>
 					<h2>OpenData Hackathon</h2>
@@ -149,7 +157,7 @@ gtag('config', 'UA-96498670-1');
 				<a href="https://kevinstadler.github.io/bombdamage/"><img src="img/opendataday.jpg" alt="Example screenshot of our interactive online map for exploring World War II damage to buildings in Vienna" /></a>
 			</div>
 		</div>
-		<div class="slide">
+		<div class="slide" data-anchor="flights">
 			<div class="content">
 				<div>
 					<h2><i>all the flights I've flown</i></h2>
@@ -160,7 +168,7 @@ gtag('config', 'UA-96498670-1');
 				<a class="prominent" href="http://kevinstadler.github.io/flights/"><img class="prominent" src="https://kevinstadler.github.io/flights/thumbnail.png" alt="Example screenshot of the flights I've flown map"  /></a>
 			</div>
 		</div>
-		<div class="slide">
+		<div class="slide" data-anchor="overlay">
 			<div class="content">
 				<div>
 					<h2><i>overlay</i></h2>
@@ -171,7 +179,7 @@ gtag('config', 'UA-96498670-1');
 				<a class="prominent" href="https://github.com/kevinstadler/remap#usage-overlaypy"><img src="https://kevinstadler.github.io/remap/examples/thumbnail.png" alt="A schematic map showing the outline of Oxford in the United Kingdom as well the 18 Oxfords found across the United States" /></a>
 			</div>
 		</div>
-		<div class="slide">
+		<div class="slide" data-anchor="alpinia">
 			<div class="content">
 				<div>
 					<h2>alpinia</h2>
@@ -182,7 +190,7 @@ gtag('config', 'UA-96498670-1');
 			</div>
 		</div>
 	</div>
-	<div class="section"><!-- #sound -->
+	<div class="section" data-anchor="sound">
 		<div class="slide">
 			<div class="content">
 				<div>
@@ -197,7 +205,7 @@ gtag('config', 'UA-96498670-1');
 				</div>
 			</div>
 		</div>
-		<div class="slide">
+		<div class="slide" data-anchor="processing-sound">
 			<div class="content">
 				<div>
 					<h2><i>processing-sound</i></h2>
@@ -207,7 +215,7 @@ gtag('config', 'UA-96498670-1');
 				<a href="https://github.com/processing/processing-sound"><img src="https://cdn-images-1.medium.com/max/1200/0*ea-W9JWYZ7T4vNjl" alt="Screenshot of the Processing Sound library in action"></a>
 			</div>
 		</div>
-		<div class="slide">
+		<div class="slide" data-anchor="sonicgraygoo">
 			<div class="content">
 				<div>
 					<h2><i>sonic gray goo</i></h2>
@@ -229,7 +237,7 @@ gtag('config', 'UA-96498670-1');
 			</div>
 		</div>
 	</div>
-	<div class="section"><!-- #contact -->
+	<div class="section" data-anchor="contact">
 		<div class="content">
 			<div>
 				<h2>contact me</h2>
@@ -240,7 +248,7 @@ gtag('config', 'UA-96498670-1');
 					<input type="hidden" name="token" value="foo">
 				</form>
 				<input type="submit" id="contactsubmit"> <span id="contactstatus"></span><noscript>You need to enable JavaScript to use this form!</noscript>
-				<p class="footer">This site was built with the help of <a href="http://a-na.net">Ana</a>, using <a href="">fullPage.js</a>.</p>
+				<p class="footer">This site was built with the help of <a href="http://a-na.net">Ana</a>, using <a href="https://github.com/alvarotrigo/fullPage.js">fullPage.js</a>. <a href="http://github.com/kevinstadler/kevinstadler.github.io" class="github"></a></p>
 			</div>
 		</div>
 	</div>
@@ -257,7 +265,6 @@ function logLoad(id) {
 
 new fullpage('#fullpage', {
 	licenseKey: 'oobwH@p8',
-	anchors: ['aboutme', 'research', 'cartography', 'sound', 'contact'],
 	autoScrolling: true,
 	scrollBar: true,
 	menu: '#menu',
@@ -272,15 +279,8 @@ new fullpage('#fullpage', {
 	}
 });
 
-var nav = document.getElementsByTagName('nav')[0];
-var menu = document.getElementById('menu');
-// have to explicitly deactivate 'hover' on phones after clicking on a menu item
-menu.onclick = function(e) {
-	console.log(nav);
-	// briefly hide nav so that it loses its hover
-	nav.style.display = 'none';
-	nav.style.display = 'block';
-}
+//var menu = document.getElementById('menu');
+// FIXME have to explicitly deactivate 'hover' on phones after clicking on a menu item
 
 var submitButton = document.getElementById('contactsubmit');
 submitButton.onclick = function(e) {
