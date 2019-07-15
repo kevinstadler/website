@@ -43,7 +43,7 @@ li > a {
 
 /* layouting common to all content types */
 div.content {
-	padding: 0 3vw 0 3vw;
+	padding: 0 5vw 0 5vw;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
