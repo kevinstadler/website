@@ -7,7 +7,7 @@
 <style type="text/css">
 html, body {
   margin: auto;
-  font-family: 'Newsreader', 'Courier', serif;
+  font-family: serif;
 }
 
 body {
@@ -43,6 +43,7 @@ body > div:target {
 
 body > div {
   cursor: zoom-in;
+  margin: .3em 0;
   padding: .4em .5em;
   border-radius: .6em;
 }
@@ -52,9 +53,10 @@ body > div > div:nth-last-child(2) {
 }
 
 body > div > div:last-child {
+  font-family: 'Newsreader', serif;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 3000ms ease;
+  transition: max-height 0s;
 }
 
 body > div:target > div:last-child, body > div > div:last-child:hover, body > div > div:hover ~ div:last-child {
@@ -71,7 +73,8 @@ body > div > div:not(:nth-last-child(2)):not(:last-child) {
   border-radius: .5em;
   border-width: .02em;
   display: block;
-  padding: .3em .3em .1em;
+/*  padding: .3em .3em .1em; for Newsreader */
+  padding: .08em .3em;
   margin: .1em;
   float: right;
   vertical-align: top;
