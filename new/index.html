@@ -1,143 +1,354 @@
 <html>
 <head>
+<title>project index</title>
+<base target="_blank">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500&display=swap" rel="stylesheet">
 <style type="text/css">
 html, body {
   margin: auto;
-  width: 35em;
-}
-body > div {
-  margin-top: .8em;
+  font-family: 'Newsreader', 'Courier', serif;
 }
 
-body > div > div:first-child {
-  font-weight: bold;
+body {
+  width: 90%;
+  margin: 1em auto;
+  min-width: 18em;
+  max-width: 40em;
+  font-weight: lighter;
+}
+
+footer {
+  position: absolute;
+  background-color: white;
+  bottom: .5em;
+}
+
+body > div:target {
+  background-color: #eee;
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: black;
+    color: lime;
+  }
+ 
+  body > div:target {
+    background-color: #242;
+  }
+}
+
+body > div {
+  cursor: zoom-in;
+  padding: .4em .5em;
+  border-radius: .6em;
+}
+
+body > div > div:nth-last-child(2) {
+  font-weight: 600;
+}
+
+body > div > div:last-child {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 3000ms ease;
+}
+
+body > div:target > div:last-child, body > div > div:last-child:hover, body > div > div:hover ~ div:last-child {
+  max-height: 100%;
+  transition: max-height 3000ms ease;
+}
+
+.date {
+}
+
+body > div > div:not(:nth-last-child(2)):not(:last-child) {
+  font-size: 80%;
+  border-style: dotted;
+  border-radius: .5em;
+  border-width: .02em;
+  display: block;
+  padding: .3em .3em .1em;
+  margin: .1em;
+  float: right;
+  vertical-align: top;
+  position: relative;
+  font-weight: normal;
+}
+
+body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
+}
+
+.academia {
+  color: blue;
+}
+.academia::before {
+  content: 'academia';
+}
+	
+.art {
+  color: purple;
+}
+
+.art:hover,  {
+  background-color: purple;
+  color: white;
+}
+
+.art::before {
+  content: 'art';
+}
+
+.cartography {
+  color: green;
+}
+
+.cartography::before {
+  content: 'cartography';
+}
+
+.dev {
+  color: gray;
+}
+.dev::before {
+  content: 'dev';
+}
+
+.future {
+  color: orange;
+}
+
+.future::before {
+  content: 'future';
+}
+
+.in-progress {
+  color: crimson;
+}
+
+.in-progress::before {
+  content: 'in progress';
+}
+
+.misc {
+  color: black;
+}
+
+.misc::before {
+  content: 'misc';
+}
+
+.sound {
+  color: red;
+}
+
+.sound::before {
+  content: 'sound';
+}
+
+.web {
+  color: blue;
+}
+
+.web::before {
+  content: 'web';
 }
 
 </style>
 </head>
 <body>
-<div class="misc">
-	<div>saved a bird</div>
-	<div>on May 19th I saved an injured bird from dehydration</div>
+<div id="about">
+	<div>about me</div>
+	<div>I do too many things and don't finish enough of them</div>
 </div>
-<div id="sickkids" class="sound">
-	<div>sick kids of edinburgh</div>
-	<div>a band</div>
+<div id="steppingintothelight">
+	<div class="future"></div>
+	<div class="art"></div>
+	<div class="date">2022</div>
+	<div>stepping into the light</div>
+	<div>in 2022 I will build a brightly lit room in which you always stand in the dark</div>
 </div>
-<div id="processing-sound" class="sound dev">
-	<div>Sound library for Processing</div>
-</div>
-<div id="songstofallasleepto" class="sound">
-	<div>songs to fall asleep to</div>
-	<div>a radio show</div>
-</div>
-<div class="web misc">
-	<div>quokka the dog</div>
-	<div>surveillance camera for my dog</div>
-</div>
-<div id="za" class="cartography art in-progress">
+<div id="za">
+	<div class="in-progress"></div>
+	<div class="cartography"></div>
+	<div class="art"></div>
 	<div>ZA</div>
 	<div>city street atlas series</div>
 </div>
-<div id="imagined-communities" class="web cartography art">
-	<div>imagined communities</div>
-</div>
-<div id="midi" class="sound dev">
-	<div>midi-tap</div>
-	<div>a FOSS Arduino library</div>
-</div>
-<div id="sonicgraygoo" class="sound art">
-	<div>sonic gray goo</div>
-	<div>an audio-visual installation</div>
-</div>
-<div id="time" class="web dev art misc">
-	<div>Florence Universal Hexadecimal Mean Time</div>
-</div>
-<div id="expectations" class="web dev art misc">
-	<div>expectations</div>
-	<div>a data-driven memento mori</div>
-</div>
-<div class="web cartography art">
-	<div>borderlands</div>
-</div>
-<div class="web cartography art">
-	<div>everybody else</div>
-</div>
-<div class="cartography art">
+<div>
+	<div class="in-progress"></div>
+	<div class="cartography"></div>
+	<div class="art"></div>
+	<div class="date">2021 -</div>
 	<div>border inspection</div>
+	<div><a href="https://thiswasyouridea.com/borderinspection/">thiswasyouridea.com/borderinspection</a></div>
 </div>
-<div class="academia dev">
-	<div>cultevo</div>
-	<div>an R library</div>
+<div>
+	<div class="in-progress"></div>
+	<div class="art"></div>
+	<div>another day (pt. 1)</div>
+	<div>desk lamp replaying outdoor light conditions from another day</div>
 </div>
-<div class="academia">
-	<div>PhD thesis</div>
+<div id="bird">
+	<div class="misc"></div>
+	<div class="date">2021</div>
+	<div>saved a bird</div>
+	<div>on May 19th I saved an injured bird from dehydration</div>
 </div>
-<div class="academia">
-	<div>teaching</div>
-	<div>I've taught these things before</div>
+<div>
+	<div class="web"></div>
+	<div class="cartography"></div>
+	<div class="art"></div>
+	<div class="date">2021</div>
+	<div>borderlands</div>
+	<div>an accurate map of the world's borders and the shrubs on either side. <a href="https://thiswasyouridea.com/borderlands/">thiswasyouridea.com/borderlands</a></div>
 </div>
-<div class="web cartography art">
-	<div>this was your idea</div>
-	<div>a website with psychogeographic blurbs</div>
+<div id="time">
+	<div class="web"></div>
+	<div class="art"></div>
+	<div class="misc"></div>
+	<div class="date">2021</div>
+	<div>Florence Universal Hexadecimal Mean Time</div>
+	<div><a href="https://thiswasyouridea.com/time/">thiswasyouridea.com/time</a></div>
 </div>
-<div class="web cartography dev">
-	<div>how big is this thing</div>
-	<div>an interactive map</div>
+<div>
+	<div class="web"></div>
+	<div class="cartography"></div>
+	<div class="art"></div>
+	<div class="date">2020</div>
+	<div>everybody else</div>
+	<div><a href="https://thiswasyouridea.com/everybodyelse/">thiswasyouridea.com/everybodyelse</a></div>
 </div>
-<div class="cartography">
-	<div>A Nieuw And Treu Mappe of Zetland</div>
-	<div>an A1 print design</div>
+<div>
+	<div class="web"></div>
+	<div class="misc"></div>
+	<div class="date">2021</div>
+	<div>quokka the dog</div>
+	<div>surveillance camera for my dog</div>
 </div>
-<div class="web cartography">
+<div>
+	<div class="web"></div>
+	<div class="cartography"></div>
+	<div class="date">2021</div>
 	<div>altitude</div>
+	<div>bla</div>
 </div>
-<div class="cartography art">
-	<div>remap</div>
-	<div>toponymic community action</div>
-</div>
-<div class="web cartography art">
+<div>
+	<div class="web"></div>
+	<div class="cartography"></div>
+	<div class="art"></div>
+	<div class="date">2021</div>
 	<div>chroma-map</div>
 	<div>online map remix</div>
 </div>
-<div class="art in-progress">
-	<div>another day (pt. 1)</div>
-	<div>desklamp replaying outdoor light conditions from another day</div>
+<div>
+	<div class="web"></div>
+	<div class="cartography"></div>
+	<div class="date">2020</div>
+	<div>how big is this thing</div>
+	<div>an interactive map</div>
 </div>
-<div class="art future">
+<div id="imagined-communities">
+	<div class="web"></div>
+	<div class="cartography"></div>
+	<div class="art"></div>
+	<div class="date">2020</div>
+	<div>imagined communities</div>
+	<div>bla</div>
+</div>
+<div id="expectations">
+	<div class="web"></div>
+	<div class="art"></div>
+	<div class="misc"></div>
+	<div class="date">2019</div>
+	<div>expectations</div>
+	<div>a data-driven memento mori<br>
+	<a href="https://thiswasyouridea.com/expectations/">thiswasyouridea.com/expectations</a>
+	</div>
+
+</div>
+<div>
+	<div class="cartography"></div>
+	<div class="date">2019</div>
+	<div><i>A Nieuw And Treu Mappe of Zetland</i></div>
+	<div>an A1 print design</div>
+</div>
+<div id="processing-sound">
+	<div class="in-progress"></div>
+	<div class="sound"></div>
+	<div class="dev"></div>
+	<div class="date">2018 - </div>
+	<div><code>Processing</code> Sound library 2.0</div>
+	<div>As part of Google Summer of Code I undertook <a href="https://medium.com/processing-foundation/sound-2-0-cbb90953ec53">a complete re-write of the official Sound library</a> for <a href="https://processing.org/">Processing</a>, a software framework for visual media arts. I still act as the principal maintainer of the <a href="https://github.com/processing/processing-sound"><code>processing-sound</code></a> Java library.</div>
+</div>
+<div>
+	<div class="web"></div>
+	<div class="cartography"></div>
+	<div class="art"></div>
+	<div class="date">2018 - </div>
+	<div><code>thiswasyouridea.com</code></div>
+	<div>a website with psychogeographic blurbs. design by <a href="https://a-na.net/">Ana Jeličiċ</a>. <a href="https://thiswasyouridea.com">thiswasyouridea.com</a></div>
+	</div>
+</div>
+<div id="midi">
+	<div class="sound"></div>
+	<div class="dev"></div>
+	<div class="date">2018</div>
+	<div>arduino tap midi clock</div>
+	<div>I've designed and built a little Arduino Nano-based MIDI beat clock driver for use in live performances. It allows you to flexibly control drum machines or other MIDI-driven arpeggiators from a tap button or pedal (such as a digital keyboard sustain pedal).</div>
+</div>
+<div>
+	<div class="academia"></div>
+	<div class="dev"></div>
+	<div class="date">2017 - </div>
+	<div><code>cultevo</code> R package</div>
+	<div><p>If you're a linguist or cultural evolution researcher you might be interested in my <code>cultevo</code> R package, which provides measures and statistical tests often used in the study of cultural evolution.</p>
+<ul class="linklist">
+                <li><a href="https://kevinstadler.github.io/cultevo/">visit the package website</a></li>
+                <li><a href="https://CRAN.R-project.org/package=cultevo">view package on CRAN</a></li>
+                <li><a class="octo" href="https://github.com/kevinstadler/cultevo">view the source code</a></li>
+</ul></div>
+</div>
+<div>
+	<div class="academia"></div>
+	<div class="date">2016</div>
+	<div>PhD thesis</div>
+	<div>For my PhD I looked at how the psychological mechanisms of trend detection and amplification in the individual can lead to the widespread adoption of new conventions across a community, a research question at the intersection of sociolinguistics, historical linguistics and evolutionary modelling. My thesis combined dialectology research with computational and mathematical modelling and can be downloaded <a href="https://www.era.lib.ed.ac.uk/handle/1842/22980">here</a>.<br>
+		The source code for the models, graphs and statistical analyses can be found in the dedicated <a href="https://github.com/kevinstadler/thesis">GitHub repository</a>.</div>
+</div>
+<div>
+	<div class="cartography"></div>
+	<div class="art"></div>
+	<div class="date">2015</div>
+	<div>remap</div>
+	<div>toponymic community action</div>
+</div>
+<div id="sonicgraygoo">
+	<div class="sound"></div>
+	<div class="art"></div>
+	<div class="date">2014</div>
+	<div>sonic gray goo</div>
+	<div>an audio-visual installation</div>
+</div>
+<div id="songstofallasleepto">
+	<div class="sound"></div>
+	<div class="date">2013 - 14</div>
+	<div>songs to fall asleep to</div>
+	<div>a radio show I did with Megan. <a href="https://www.mixcloud.com/songstofallasleepto/">mixcloud.com/songstofallasleepto/</a></div>
+</div>
+<div>
+	<div class="academia"></div>
+	<div class="date">2013 - </div>
+	<div>teaching</div>
+	<div>I've taught these things before</div>
+</div>
+<div>
+	<div class="future"></div>
+	<div class="art"></div>
 	<div>another day (pt. 2)</div>
 	<div>replaying the weather from another day</div>
 </div>
-<div class="art future">
-	<div>stepping into the light</div>
-	<div>a brightly lit room where you always stand in the dark</div>
-</div>
-<script type="text/javascript">
-  const cols = {
-    web: 'blue',
-    art: 'purple',
-    cartography: 'green',
-    future: 'orange',
-    dev: 'gray',
-    misc: 'black',
-    sound: 'red',
-    'in-progress': 'crimson',
-  };
-  for (let el of document.body.children) {
-    for (let cl of el.className.split(' ')) {
-      const nd = document.createElement('div');
-      nd.style.color = cols[cl];
-      nd.style.border = '.5px dashed';
-      nd.style.display = 'inline';
-      nd.style.padding = '.07em .3em';
-      nd.style.margin = '.1em';
-      nd.style.float = 'right';
-      nd.style.fontWeight = 'normal';
-      const tx = document.createTextNode(cl);
-      nd.appendChild(tx);
-      el.children[0].appendChild(nd);
-    }
-  }
-</script>
+<footer><a href="https://kevinstadler.github.io/notes/">technical notes</a> <a href="https://github.com/kevinstadler">github</a></footer>
 </body>
 </html>
