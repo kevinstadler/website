@@ -1,13 +1,14 @@
 <html>
 <head>
-<title>project index</title>
+<title>k | index</title>
 <base target="_blank">
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600&display=swap" rel="stylesheet">
 <style type="text/css">
 html, body {
   margin: auto;
-  font-family: serif;
+  font-family: 'Newsreader', serif;
+/*  overflow: visible; */
 }
 
 body {
@@ -18,14 +19,26 @@ body {
   font-weight: lighter;
 }
 
+div.img {
+  position: relative;
+  float: right;
+  margin: .5em;
+  margin-right: -50%;
+}
+
 footer {
-  position: absolute;
+  position: sticky;
   background-color: white;
   bottom: .5em;
+  left: 1em;
+}
+
+.highlight {
+  background-color: #eee;
 }
 
 body > div:target {
-  background-color: #eee;
+  background-color: #fdd;
 }
 
 /*
@@ -48,23 +61,25 @@ body > div {
   border-radius: .6em;
 }
 
+
 body > div > div:nth-last-child(2) {
   font-weight: 600;
 }
 
 body > div > div:last-child {
-  font-family: 'Newsreader', serif;
+  font-weight: 400;
   max-height: 0;
+  margin: 0 1em;
+  padding: 0;
   overflow: hidden;
-  transition: max-height 0s;
+  transition: all 0s;
 }
 
 body > div:target > div:last-child, body > div > div:last-child:hover, body > div > div:hover ~ div:last-child {
   max-height: 100%;
-  transition: max-height 3000ms ease;
-}
-
-.date {
+  overflow: visible;
+  padding: .8em 0;
+  transition: padding 0ms ease-out 150ms, max-height 3s ease-out 150ms;
 }
 
 body > div > div:not(:nth-last-child(2)):not(:last-child) {
@@ -72,9 +87,9 @@ body > div > div:not(:nth-last-child(2)):not(:last-child) {
   border-style: dotted;
   border-radius: .5em;
   border-width: .02em;
-  display: block;
-/*  padding: .3em .3em .1em; for Newsreader */
-  padding: .08em .3em;
+/*  display: block; */
+  padding: .3em .3em .1em; /* for Newsreader */
+/*   padding: .08em .3em; */
   margin: .1em;
   float: right;
   vertical-align: top;
@@ -85,6 +100,9 @@ body > div > div:not(:nth-last-child(2)):not(:last-child) {
 body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
 }
 
+.date {
+}
+
 .academia {
   color: blue;
 }
@@ -93,6 +111,7 @@ body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
 }
 	
 .art {
+  display: none;
   color: purple;
 }
 
@@ -102,7 +121,7 @@ body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
 }
 
 .art::before {
-  content: 'art';
+/*  content: 'art'; */
 }
 
 .cartography {
@@ -114,10 +133,10 @@ body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
 }
 
 .dev {
-  color: gray;
+  color: #666;
 }
 .dev::before {
-  content: 'dev';
+  content: 'tool';
 }
 
 .future {
@@ -136,12 +155,21 @@ body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
   content: 'in progress';
 }
 
+.installation {
+  color: purple;
+}
+
+.installation::before {
+  content: 'installation';
+}
+
 .misc {
+  display: none;
   color: black;
 }
 
 .misc::before {
-  content: 'misc';
+/*  content: 'misc'; */
 }
 
 .sound {
@@ -150,6 +178,22 @@ body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
 
 .sound::before {
   content: 'sound';
+}
+
+.tool {
+  color: #666;
+}
+
+.tool::before {
+  content: 'tool';
+}
+
+.tracking {
+  color: black;
+}
+
+.tracking::before {
+  content: 'tracking';
 }
 
 .web {
@@ -161,27 +205,33 @@ body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
 }
 
 </style>
-</head>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fluidbox/2.0.5/js/jquery.fluidbox.min.js" integrity="sha512-0kQqdmb3fpKtRwrbCZDlmiwuZgDyPAOLDOu/HyAt4py7lAVDXKknqtqS6dFNV8U8JrHZymQxlO9SFPZ2u8dhMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fluidbox/2.0.5/css/fluidbox.min.css" integrity="sha512-1gVXQF5Q9gL1HvHBLK0y3IAWCorLY9EU+JMTsLBlXgWfgf6EIS/8B27R/nUq1joeKz2N7ZHCNnLCjc+PuqDqDA==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
 <body>
-<div id="about">
+<div tabindex="0" id="about">
 	<div>about me</div>
-	<div>I do too many things and don't finish enough of them</div>
+	<div><div class="img"><a href="https://kevinstadler.github.io/img/kevin.jpg"><img src="https://kevinstadler.github.io/img/kevin.jpg" loading="lazy" alt="Kevin wearing his favourite headband with two teddy bears"></a><a href="snake.jpg"><img src="snake.jpg" loading="lazy" alt="recipient of the rescue operation"></a></div>I do too many things and don't finish enough of them. I like it when things are broken, or used in ways other than intended.</div>
 </div>
-<div id="steppingintothelight">
+<div tabindex="0" id="steppingintothelight">
 	<div class="future"></div>
+	<div class="installation"></div>
 	<div class="art"></div>
 	<div class="date">2022</div>
 	<div>stepping into the light</div>
 	<div>in 2022 I will build a brightly lit room in which you always stand in the dark</div>
 </div>
-<div id="za">
+<div tabindex="0" id="za" class="highlight">
 	<div class="in-progress"></div>
 	<div class="cartography"></div>
 	<div class="art"></div>
+	<div class="date">2020 -</div>
 	<div>ZA</div>
 	<div>city street atlas series</div>
 </div>
-<div>
+<div tabindex="0" id="borderinspection">
 	<div class="in-progress"></div>
 	<div class="cartography"></div>
 	<div class="art"></div>
@@ -189,19 +239,27 @@ body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
 	<div>border inspection</div>
 	<div><a href="https://thiswasyouridea.com/borderinspection/">thiswasyouridea.com/borderinspection</a></div>
 </div>
-<div>
+<div tabindex="0" id="anotherday-pt1">
 	<div class="in-progress"></div>
 	<div class="art"></div>
+	<div class="date">2021</div>
 	<div>another day (pt. 1)</div>
 	<div>desk lamp replaying outdoor light conditions from another day</div>
 </div>
-<div id="bird">
+<div tabindex="0" id="myroof">
+	<div class="web"></div>
+	<div class="tracking"></div>
+	<div class="date">2021</div>
+	<div>the light on my roof</div>
+	<div>replaying the weather from another day</div>
+</div>
+<div tabindex="0" id="bird">
 	<div class="misc"></div>
 	<div class="date">2021</div>
 	<div>saved a bird</div>
-	<div>on May 19th I saved an injured bird from dehydration</div>
+	<div><div class="img"><a href="bird.jpg"><img src="bird.jpg" loading="lazy" alt="recipient of the rescue operation"></a></div>on May 19th I saved an injured bird, unable to escape from the balcony it was trapped in, from certain death by dehydration</div>
 </div>
-<div>
+<div tabindex="0" id="borderlands" class="highlight">
 	<div class="web"></div>
 	<div class="cartography"></div>
 	<div class="art"></div>
@@ -209,37 +267,30 @@ body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
 	<div>borderlands</div>
 	<div>an accurate map of the world's borders and the shrubs on either side. <a href="https://thiswasyouridea.com/borderlands/">thiswasyouridea.com/borderlands</a></div>
 </div>
-<div id="time">
+<div tabindex="0" id="time">
 	<div class="web"></div>
 	<div class="art"></div>
 	<div class="misc"></div>
+	<div class="tool"></div>
 	<div class="date">2021</div>
 	<div>Florence Universal Hexadecimal Mean Time</div>
 	<div><a href="https://thiswasyouridea.com/time/">thiswasyouridea.com/time</a></div>
 </div>
-<div>
+<div tabindex="0" id="quokkathedog">
 	<div class="web"></div>
-	<div class="cartography"></div>
-	<div class="art"></div>
-	<div class="date">2020</div>
-	<div>everybody else</div>
-	<div><a href="https://thiswasyouridea.com/everybodyelse/">thiswasyouridea.com/everybodyelse</a></div>
-</div>
-<div>
-	<div class="web"></div>
-	<div class="misc"></div>
+	<div class="tracking"></div>
 	<div class="date">2021</div>
 	<div>quokka the dog</div>
 	<div>surveillance camera for my dog</div>
 </div>
-<div>
+<div tabindex="0" id="altitude">
 	<div class="web"></div>
 	<div class="cartography"></div>
 	<div class="date">2021</div>
 	<div>altitude</div>
 	<div>bla</div>
 </div>
-<div>
+<div tabindex="0" id="chroma">
 	<div class="web"></div>
 	<div class="cartography"></div>
 	<div class="art"></div>
@@ -247,14 +298,38 @@ body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
 	<div>chroma-map</div>
 	<div>online map remix</div>
 </div>
-<div>
+<div tabindex="0" id="howbigisthisthing">
 	<div class="web"></div>
 	<div class="cartography"></div>
+	<div class="tool"></div>
 	<div class="date">2020</div>
 	<div>how big is this thing</div>
 	<div>an interactive map</div>
 </div>
-<div id="imagined-communities">
+<div tabindex="0" id="alongthesameline">
+	<div class="web"></div>
+	<div class="cartography"></div>
+	<div class="tool"></div>
+	<div class="date">2020</div>
+	<div>along the same line</div>
+	<div>thing for generating things</div>
+</div>
+<div tabindex="0" id="everybodyelse" class="highlight">
+	<div class="web"></div>
+	<div class="cartography"></div>
+	<div class="art"></div>
+	<div class="date">2020</div>
+	<div>everybody else</div>
+	<div><a href="https://thiswasyouridea.com/everybodyelse/">thiswasyouridea.com/everybodyelse</a></div>
+</div>
+<div tabindex="0" id="whatareyouafraidof">
+	<div class="art"></div>
+	<div class="installation"></div>
+	<div class="date">2020</div>
+	<div>你更害怕什么 (what are you afraid of?)</div>
+	<div>bla</div>
+</div>
+<div tabindex="0" id="imagined-communities">
 	<div class="web"></div>
 	<div class="cartography"></div>
 	<div class="art"></div>
@@ -262,24 +337,22 @@ body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
 	<div>imagined communities</div>
 	<div>bla</div>
 </div>
-<div id="expectations">
+<div tabindex="0" id="expectations">
 	<div class="web"></div>
-	<div class="art"></div>
 	<div class="misc"></div>
 	<div class="date">2019</div>
 	<div>expectations</div>
 	<div>a data-driven memento mori<br>
 	<a href="https://thiswasyouridea.com/expectations/">thiswasyouridea.com/expectations</a>
 	</div>
-
 </div>
-<div>
+<div tabindex="0" id="zetland">
 	<div class="cartography"></div>
 	<div class="date">2019</div>
-	<div><i>A Nieuw And Treu Mappe of Zetland</i></div>
+	<div><i style="font-family: Luminari, Trattatello, fantasy;">A Nieuw And Treu Mappe of Zetland</i></div>
 	<div>an A1 print design</div>
 </div>
-<div id="processing-sound">
+<div tabindex="0" id="processing-sound">
 	<div class="in-progress"></div>
 	<div class="sound"></div>
 	<div class="dev"></div>
@@ -287,7 +360,7 @@ body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
 	<div><code>Processing</code> Sound library 2.0</div>
 	<div>As part of Google Summer of Code I undertook <a href="https://medium.com/processing-foundation/sound-2-0-cbb90953ec53">a complete re-write of the official Sound library</a> for <a href="https://processing.org/">Processing</a>, a software framework for visual media arts. I still act as the principal maintainer of the <a href="https://github.com/processing/processing-sound"><code>processing-sound</code></a> Java library.</div>
 </div>
-<div>
+<div tabindex="0" id="thiswasyouridea" class="highlight">
 	<div class="web"></div>
 	<div class="cartography"></div>
 	<div class="art"></div>
@@ -296,14 +369,14 @@ body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
 	<div>a website with psychogeographic blurbs. design by <a href="https://a-na.net/">Ana Jeličiċ</a>. <a href="https://thiswasyouridea.com">thiswasyouridea.com</a></div>
 	</div>
 </div>
-<div id="midi">
+<div tabindex="0" id="midi">
 	<div class="sound"></div>
 	<div class="dev"></div>
 	<div class="date">2018</div>
 	<div>arduino tap midi clock</div>
 	<div>I've designed and built a little Arduino Nano-based MIDI beat clock driver for use in live performances. It allows you to flexibly control drum machines or other MIDI-driven arpeggiators from a tap button or pedal (such as a digital keyboard sustain pedal).</div>
 </div>
-<div>
+<div tabindex="0" id="cultevo">
 	<div class="academia"></div>
 	<div class="dev"></div>
 	<div class="date">2017 - </div>
@@ -315,45 +388,58 @@ body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
                 <li><a class="octo" href="https://github.com/kevinstadler/cultevo">view the source code</a></li>
 </ul></div>
 </div>
-<div>
+<div tabindex="0" id="thesis">
 	<div class="academia"></div>
 	<div class="date">2016</div>
 	<div>PhD thesis</div>
 	<div>For my PhD I looked at how the psychological mechanisms of trend detection and amplification in the individual can lead to the widespread adoption of new conventions across a community, a research question at the intersection of sociolinguistics, historical linguistics and evolutionary modelling. My thesis combined dialectology research with computational and mathematical modelling and can be downloaded <a href="https://www.era.lib.ed.ac.uk/handle/1842/22980">here</a>.<br>
 		The source code for the models, graphs and statistical analyses can be found in the dedicated <a href="https://github.com/kevinstadler/thesis">GitHub repository</a>.</div>
 </div>
-<div>
+<div tabindex="0" id="remap">
+	<div class="installation"></div>
 	<div class="cartography"></div>
 	<div class="art"></div>
 	<div class="date">2015</div>
 	<div>remap</div>
 	<div>toponymic community action</div>
 </div>
-<div id="sonicgraygoo">
+<div tabindex="0" id="sonicgraygoo">
+	<div class="installation"></div>
 	<div class="sound"></div>
 	<div class="art"></div>
 	<div class="date">2014</div>
 	<div>sonic gray goo</div>
 	<div>an audio-visual installation</div>
 </div>
-<div id="songstofallasleepto">
+<div tabindex="0" id="songstofallasleepto">
 	<div class="sound"></div>
 	<div class="date">2013 - 14</div>
 	<div>songs to fall asleep to</div>
 	<div>a radio show I did with Megan. <a href="https://www.mixcloud.com/songstofallasleepto/">mixcloud.com/songstofallasleepto/</a></div>
 </div>
-<div>
+<div tabindex="0" id="teaching">
 	<div class="academia"></div>
 	<div class="date">2013 - </div>
 	<div>teaching</div>
 	<div>I've taught these things before</div>
 </div>
-<div>
+<div tabindex="0" id="anotherday-pt2">
 	<div class="future"></div>
 	<div class="art"></div>
 	<div>another day (pt. 2)</div>
 	<div>replaying the weather from another day</div>
 </div>
+<div tabindex="0" id="lastfm">
+	<div class="tracking"></div>
+	<div class="date">2005 - </div>
+	<div>last.fm</div>
+	<div></div>
+</div>
 <footer><a href="https://kevinstadler.github.io/notes/">technical notes</a> <a href="https://github.com/kevinstadler">github</a></footer>
 </body>
+<script type="text/javascript">
+$(function () {
+    $('a').fluidbox();
+});
+</script>
 </html>
