@@ -1,19 +1,20 @@
 <html>
 <head>
 <title>k | index</title>
-<base target="_blank">
+<base target="_self">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600&display=swap" rel="stylesheet">
 <style type="text/css">
 html, body {
   margin: auto;
   font-family: 'Newsreader', serif;
+  scroll-behavior: smooth;
 /*  overflow: visible; */
 }
 
 body {
   width: 90%;
-  margin: 1em auto;
+  padding: .5em 0 3em 0;
   min-width: 18em;
   max-width: 40em;
   font-weight: lighter;
@@ -22,23 +23,56 @@ body {
 div.img {
   position: relative;
   float: right;
-  margin: .5em;
-  margin-right: -50%;
+/*  margin: .5em;
+  margin-right: -50%; */
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+li {
+	margin-top: .5em;
 }
 
 footer {
-  position: sticky;
+  position: fixed;
   background-color: white;
   bottom: .5em;
-  left: 1em;
+  right: .5em;
 }
 
-.highlight {
-  background-color: #eee;
+#index {
+	position: fixed;
+	top: .5em;
+	right: .5em;
+}
+
+footer > a {
+	border: .1em solid black;
+	border-radius: 0;
+	background-color: white;
+	padding: .15em;
+	color: black;
+	font-family: sans-serif;
+	font-size: 88%;
+}
+
+#about, #now {
+/*  border: #eee .2em solid; */
 }
 
 body > div:target {
-  background-color: #fdd;
+  border: #fbb .2em solid;
+}
+
+body > div:target {
+/*  background-color: #fdd; */
+}
+
+.highlight {
+/*  border: #eee .15em dashed; */
 }
 
 /*
@@ -54,42 +88,34 @@ body > div:target {
 }
 */
 
+/* box */
 body > div {
-  cursor: zoom-in;
-  margin: .3em 0;
+  margin: 1em 0;
   padding: .4em .5em;
-  border-radius: .6em;
+  border-radius: .1em;
+  box-shadow: .1em .1em .2em #888;
 }
 
+/* item title bar */
+body > div > a {
+  cursor: zoom-in;
+	text-decoration: none;
+}
 
-body > div > div:nth-last-child(2) {
+/* title text */
+body > div > a > * {
   font-weight: 600;
+	color: black;
 }
 
-body > div > div:last-child {
-  font-weight: 400;
-  max-height: 0;
-  margin: 0 1em;
-  padding: 0;
-  overflow: hidden;
-  transition: all 0s;
-}
-
-body > div:target > div:last-child, body > div > div:last-child:hover, body > div > div:hover ~ div:last-child {
-  max-height: 100%;
-  overflow: visible;
-  padding: .8em 0;
-  transition: padding 0ms ease-out 150ms, max-height 3s ease-out 150ms;
-}
-
-body > div > div:not(:nth-last-child(2)):not(:last-child) {
+/* category boxes */
+body > div > a > div > div {
   font-size: 80%;
   border-style: dotted;
   border-radius: .5em;
   border-width: .02em;
 /*  display: block; */
   padding: .3em .3em .1em; /* for Newsreader */
-/*   padding: .08em .3em; */
   margin: .1em;
   float: right;
   vertical-align: top;
@@ -97,7 +123,49 @@ body > div > div:not(:nth-last-child(2)):not(:last-child) {
   font-weight: normal;
 }
 
-body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
+/* item body/content */
+body > div > div:last-child {
+  font-weight: 400;
+  max-height: 0;
+/*  margin: 0 1em;
+  padding: 0; */
+  transform: scaleY(0);
+  overflow: hidden;
+  transition: all 300ms ease-out;
+}
+
+body > div:target > div:last-child { /*, body > div:focus-within > div:last-child { */
+  max-height: fit-content;
+  /* 100% for proper scrolling but need to do something about overflow
+  overflow: visible; */
+  padding: .8em 0;
+  transform: scaleY(1.0);
+/*  transition: padding 300ms ease-out, max-height 3s ease-out; */
+}
+
+body > div:target > div.twocol:last-child {
+	margin: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	overflow: visible;
+}
+
+.twocol > .right {
+	margin-right: -25%;
+	align-self: flex-end;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+}
+
+.right > * {
+	flex: 0 0 auto;
+}
+
+.twocol img {
+	max-width: 70%;
 }
 
 .date {
@@ -203,241 +271,408 @@ body > div > div:not(:nth-last-child(2)):not(:last-child):hover {
 .web::before {
   content: 'web';
 }
-
 </style>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fluidbox/2.0.5/js/jquery.fluidbox.min.js" integrity="sha512-0kQqdmb3fpKtRwrbCZDlmiwuZgDyPAOLDOu/HyAt4py7lAVDXKknqtqS6dFNV8U8JrHZymQxlO9SFPZ2u8dhMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fluidbox/2.0.5/css/fluidbox.min.css" integrity="sha512-1gVXQF5Q9gL1HvHBLK0y3IAWCorLY9EU+JMTsLBlXgWfgf6EIS/8B27R/nUq1joeKz2N7ZHCNnLCjc+PuqDqDA==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
-<body>
+<body id="top">
 <div tabindex="0" id="about">
-	<div>about me</div>
-	<div><div class="img"><a href="https://kevinstadler.github.io/img/kevin.jpg"><img src="https://kevinstadler.github.io/img/kevin.jpg" loading="lazy" alt="Kevin wearing his favourite headband with two teddy bears"></a><a href="snake.jpg"><img src="snake.jpg" loading="lazy" alt="recipient of the rescue operation"></a></div>I do too many things and don't finish enough of them. I like it when things are broken, or used in ways other than intended.</div>
-</div>
-<div tabindex="0" id="steppingintothelight">
-	<div class="future"></div>
-	<div class="installation"></div>
-	<div class="art"></div>
-	<div class="date">2022</div>
-	<div>stepping into the light</div>
-	<div>in 2022 I will build a brightly lit room in which you always stand in the dark</div>
-</div>
-<div tabindex="0" id="za" class="highlight">
-	<div class="in-progress"></div>
-	<div class="cartography"></div>
-	<div class="art"></div>
-	<div class="date">2020 -</div>
-	<div>ZA</div>
-	<div>city street atlas series</div>
-</div>
-<div tabindex="0" id="borderinspection">
-	<div class="in-progress"></div>
-	<div class="cartography"></div>
-	<div class="art"></div>
-	<div class="date">2021 -</div>
-	<div>border inspection</div>
-	<div><a href="https://thiswasyouridea.com/borderinspection/">thiswasyouridea.com/borderinspection</a></div>
-</div>
-<div tabindex="0" id="anotherday-pt1">
-	<div class="in-progress"></div>
-	<div class="art"></div>
-	<div class="date">2021</div>
-	<div>another day (pt. 1)</div>
-	<div>desk lamp replaying outdoor light conditions from another day</div>
-</div>
-<div tabindex="0" id="myroof">
-	<div class="web"></div>
-	<div class="tracking"></div>
-	<div class="date">2021</div>
-	<div>the light on my roof</div>
-	<div>replaying the weather from another day</div>
-</div>
-<div tabindex="0" id="bird">
-	<div class="misc"></div>
-	<div class="date">2021</div>
-	<div>saved a bird</div>
-	<div><div class="img"><a href="bird.jpg"><img src="bird.jpg" loading="lazy" alt="recipient of the rescue operation"></a></div>on May 19th I saved an injured bird, unable to escape from the balcony it was trapped in, from certain death by dehydration</div>
-</div>
-<div tabindex="0" id="borderlands" class="highlight">
-	<div class="web"></div>
-	<div class="cartography"></div>
-	<div class="art"></div>
-	<div class="date">2021</div>
-	<div>borderlands</div>
-	<div>an accurate map of the world's borders and the shrubs on either side. <a href="https://thiswasyouridea.com/borderlands/">thiswasyouridea.com/borderlands</a></div>
-</div>
-<div tabindex="0" id="time">
-	<div class="web"></div>
-	<div class="art"></div>
-	<div class="misc"></div>
-	<div class="tool"></div>
-	<div class="date">2021</div>
-	<div>Florence Universal Hexadecimal Mean Time</div>
-	<div><a href="https://thiswasyouridea.com/time/">thiswasyouridea.com/time</a></div>
-</div>
-<div tabindex="0" id="quokkathedog">
-	<div class="web"></div>
-	<div class="tracking"></div>
-	<div class="date">2021</div>
-	<div>quokka the dog</div>
-	<div>surveillance camera for my dog</div>
-</div>
-<div tabindex="0" id="altitude">
-	<div class="web"></div>
-	<div class="cartography"></div>
-	<div class="date">2021</div>
-	<div>altitude</div>
-	<div>bla</div>
-</div>
-<div tabindex="0" id="chroma">
-	<div class="web"></div>
-	<div class="cartography"></div>
-	<div class="art"></div>
-	<div class="date">2021</div>
-	<div>chroma-map</div>
-	<div>online map remix</div>
-</div>
-<div tabindex="0" id="howbigisthisthing">
-	<div class="web"></div>
-	<div class="cartography"></div>
-	<div class="tool"></div>
-	<div class="date">2020</div>
-	<div>how big is this thing</div>
-	<div>an interactive map</div>
-</div>
-<div tabindex="0" id="alongthesameline">
-	<div class="web"></div>
-	<div class="cartography"></div>
-	<div class="tool"></div>
-	<div class="date">2020</div>
-	<div>along the same line</div>
-	<div>thing for generating things</div>
-</div>
-<div tabindex="0" id="everybodyelse" class="highlight">
-	<div class="web"></div>
-	<div class="cartography"></div>
-	<div class="art"></div>
-	<div class="date">2020</div>
-	<div>everybody else</div>
-	<div><a href="https://thiswasyouridea.com/everybodyelse/">thiswasyouridea.com/everybodyelse</a></div>
-</div>
-<div tabindex="0" id="whatareyouafraidof">
-	<div class="art"></div>
-	<div class="installation"></div>
-	<div class="date">2020</div>
-	<div>你更害怕什么 (what are you afraid of?)</div>
-	<div>bla</div>
-</div>
-<div tabindex="0" id="imagined-communities">
-	<div class="web"></div>
-	<div class="cartography"></div>
-	<div class="art"></div>
-	<div class="date">2020</div>
-	<div>imagined communities</div>
-	<div>bla</div>
-</div>
-<div tabindex="0" id="expectations">
-	<div class="web"></div>
-	<div class="misc"></div>
-	<div class="date">2019</div>
-	<div>expectations</div>
-	<div>a data-driven memento mori<br>
-	<a href="https://thiswasyouridea.com/expectations/">thiswasyouridea.com/expectations</a>
+	<a href="#about" target="_self"><div>k</div></a>
+	<div class="twocol">
+		<p>I like it when things are broken, or used in ways other than intended.</p>
+		<p>I used to walk with the <a href="https://www.facebook.com/sundayadventure/" target="_blank">Sunday Adventure Club</a>. I've also exhibited some experimental maps with <a href="http://theresidentsassociation.tumblr.com/" target="_blank">The Residents Association</a>.</p>
+		<div class="right">
+			<a href="https://kevinstadler.github.io/img/kevin.jpg"><img src="https://kevinstadler.github.io/img/kevin.jpg" loading="lazy" alt="Kevin wearing his favourite headband with two teddy bears"></a>
+			<a href="snake.jpg"><img src="snake.jpg" loading="lazy" alt="meet & greet with Sir Hiss"></a>
+		</div>
 	</div>
 </div>
+<div tabindex="0" id="now">
+	<a href="#now" target="_self"><div>now</div></a>
+	<div>
+		<div>
+			<p>July 2021</p>
+			<ul>
+				<li>I'm working on a new website (this one).</li>
+				<li>I want to pick up/finish some work about <a href="https://thiswasyouridea.com/the-view/" target="_blank">views</a> that I started about a year ago. Last year I thought a lot about views and viewpoints in public places, how they are not necessarily appreciated, protected or preserved, and are in fact rapidly getting privatised or otherwise occupied in the city where I live. Since I will be moving soon, this is my last chance to try some systematic analysis and documentation of the sites that originally inspired these thoughts. Apart from wrapping up a little piece of unfinished writing from last year, I also want to first "approach" or identify some local views in a quantitative way, before physically seeking out the sites and documenting them in some way (probably geometric photography).</li>
+				<li>I will be going on a <a href="https://www.yunnantrails.com/yading-outer-kora" target="_blank">5 day hike mostly above 4000m altitude</a>.</li>
+				<li>My goal this year was to practice creating more physical objects, by which I guess I just mean LED stuff. I've built 3 little things which, while conceptually good, were disappointing in their physical execution. I will continue to work on refining one of the dynamic lamps by trying out more diffuse/background lighting arrangements.</li>
+				<li>I'm doing daily physio exercises especially for my knees and also back/shoulders.</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<hr>
+<div tabindex="0" id="steppingintothelight">
+	<a href="#steppingintothelight" target="_self"><div>
+		stepping into the light
+		<div class="future"></div>
+		<div class="installation"></div>
+		<div class="art"></div>
+		<div class="date">2022</div>
+	</div></a>
+	<div>in 2022 I will build a brightly lit room in which you always stand in the dark</div>
+</div>
+
+<div tabindex="0" id="borderinspection">
+	<a href="#borderinspection" target="_self"><div>
+		border inspection
+		<div class="in-progress"></div>
+		<div class="installation"></div>
+		<div class="web"></div>
+		<div class="cartography"></div>
+		<div class="art"></div>
+		<div class="date">2021 -</div>
+	</div></a>
+	<div><em>inspecting borders since 2021.</em> High-quality 3D tours of the world's national boundaries, rendered on demand and whenever we feel like it. <a href="https://thiswasyouridea.com/borderinspection/" target="_blank">/borderinspection</a></div>
+</div>
+
+<div tabindex="0" id="anotherday-pt1">
+	<a href="#anotheryday-pt1" target="_self"><div>
+		another day (pt. 1)
+		<div class="in-progress"></div>
+		<div class="art"></div>
+		<div class="date">2021</div>
+	</div></a>
+	<div>a light installation nostalgic for another day</div>
+</div>
+
+
+<div tabindex="0" id="za" class="highlight">
+	<a href="#za" target="_self"><div>
+		ZA
+		<div class="in-progress"></div>
+		<div class="cartography"></div>
+		<div class="art"></div>
+		<div class="date">2020 -</div>
+	</div></a>
+	<div class="twocol">
+		<p><em>Z to A</em> is an ongoing series of street atlas publications for places that the A to Z never dared to go.</p>
+		<a class="right" href="za.jpg"><img src="za.jpg" title="a Z-A street atlas book"></a>
+	</div>
+</div>
+
+<div tabindex="0" id="theview">
+	<a href="#theview"><div>
+		<span>the view</span>
+		<div class="in-progress"></div>
+		<div class="cartography"></div>
+		<div class="date">2020 -</div>
+	</div></a>
+	<div><a href="https://thiswasyouridea.com/the-view/" target="_blank">/the-view</a></div>
+</div>
+
+<div tabindex="0" id="thelightonmyroof">
+	<a href="#thelightonmyroof" target="_self"><div>
+		the light on my roof
+		<div class="web"></div>
+		<div class="tracking"></div>
+		<div class="date">2021</div>
+	</div></a>
+	<div>
+		monitoring by-product of measurement work for <a href="#anotheryday-pt1">another day</a>.
+		<p><a href="https://thiswasyouridea.com/thelightonmyroof/" target="_blank">/thelightonmyroof</a></p></div>
+</div>
+
+<div tabindex="0" id="bird">
+	<a href="#bird" target="_self"><div>
+		saved a bird
+		<div class="misc"></div>
+		<div class="date">2021</div>
+	</div></a>
+	<div class="twocol">
+		<p>on May 19th I saved an injured bird, unable to escape from the balcony it was trapped in, from certain death by dehydration.</p>
+		<a class="right" href="bird.jpg"><img src="bird.jpg" loading="lazy" alt="recipient of the rescue operation"></a>
+	</div>
+</div>
+
+<div tabindex="0" id="borderlands" class="highlight">
+	<a href="#borderlands" target="_self"><div>
+		borderlands
+		<div class="web"></div>
+		<div class="cartography"></div>
+		<div class="art"></div>
+		<div class="date">2021</div>
+	</div></a>
+	<div class="twocol">
+		<p>an accurate map of the world's borders and the shrubs on either side. <a href="https://thiswasyouridea.com/borderlands/">/borderlands</a></p>
+		<a class="right" href="https://res.cloudinary.com/futile/image/upload/w_auto,c_crop,q_auto/meta/borderlands.png"><img src="https://res.cloudinary.com/futile/image/upload/w_auto,c_crop,q_auto/meta/borderlands.png" loading="lazy" alt="borderlands"></a>
+	</div>
+</div>
+
+<div tabindex="0" id="time">
+	<a href="#time" target="_self"><div>
+		Florence Universal Hexadecimal Mean Time
+		<div class="web"></div>
+		<div class="art"></div>
+		<div class="misc"></div>
+		<div class="tool"></div>
+		<div class="date">2021</div>
+	</div></a>
+	<div>
+		<p>online tool for converting to/from Florence Universal Hexadecimal Mean Time</p>
+		<p><a href="https://thiswasyouridea.com/time/" target="_blank">/time</a></p></div>
+</div>
+
+<div tabindex="0" id="tcs34725">
+	<a href="#tcs34725" target="_self"><div><code>TCS34725AutoGain</code> Arduino library
+		<div class="tool"></div>
+		<div class="date">2021</div>
+	</div></a>
+	<div>An Arduino library for the TCS34725 RGB color sensor.
+		<p><a href="https://github.com/kevinstadler/TCS34725AutoGain" target="_blank">Github</a></p>
+	</div>
+</div>
+
+<div tabindex="0" id="quokkathedog">
+	<a href="#quokkathedog" target="_self"><div>
+		quokka the dog
+		<div class="web"></div>
+		<div class="tracking"></div>
+		<div class="date">2021</div>
+	</div></a>
+	<div>surveillance camera for my dog</div>
+</div>
+
+<div tabindex="0" id="altitude">
+	<a href="#altitude" target="_self"><div>
+		altitude
+		<div class="web"></div>
+		<div class="cartography"></div>
+		<div class="date">2021</div>
+	</div></a>
+	<div><a href="https://kevinstadler.github.io/altitude/" target="_blank">/altitude</a></div>
+</div>
+
+<div tabindex="0" id="chroma">
+	<a href="#chroma" target="_self"><div>
+		chroma-map
+		<div class="web"></div>
+		<div class="cartography"></div>
+		<div class="art"></div>
+		<div class="date">2021</div>
+	</div></a>
+	<div><a href="https://thiswasyouridea.com/chroma-map/" target="_blank">/chroma-map</a></div>
+</div>
+
+<div tabindex="0" id="howbigisthisthing">
+	<a href="#howbigisthisthing" target="_self"><div>
+		how big is this thing
+		<div class="web"></div>
+		<div class="cartography"></div>
+		<div class="tool"></div>
+		<div class="date">2020</div>
+	</div></a>
+	<div>an interactive map</div>
+</div>
+
+<div tabindex="0" id="alongthesameline">
+	<a href="#alongthesameline" target="_self"><div>
+		along the same line
+		<div class="web"></div>
+		<div class="cartography"></div>
+		<div class="tool"></div>
+		<div class="date">2020</div>
+	</div></a>
+	<div>thing for generating things</div>
+</div>
+
+<div tabindex="0" id="everybodyelse" class="highlight">
+	<a href="#everybodyelse" target="_self"><div>
+		everybody else
+		<div class="web"></div>
+		<div class="cartography"></div>
+		<div class="art"></div>
+		<div class="date">2020</div>
+	</div></a>
+	<div><a href="https://thiswasyouridea.com/everybodyelse/" target="_blank">/everybodyelse</a></div>
+</div>
+
+<div tabindex="0" id="whatareyouafraidof">
+	<a href="#whatareyouafraidof" target="_self"><div>
+		你更害怕什么 (what are you afraid of?)
+		<div class="art"></div>
+		<div class="installation"></div>
+		<div class="date">2020</div>
+	</div></a>
+	<div>bla</div>
+</div>
+
+<div tabindex="0" id="imagined-communities">
+	<a href="#imagined-communities" target="_self"><div>imagined communities
+		<div class="web"></div>
+		<div class="cartography"></div>
+		<div class="art"></div>
+		<div class="date">2020</div>
+	</div></a>
+	<div>bla</div>
+</div>
+
+<div tabindex="0" id="expectations">
+	<a href="#expectations" target="_self"><div>
+		expectations
+		<div class="web"></div>
+		<div class="misc"></div>
+		<div class="date">2019</div>
+	</div></a>
+	<div>a data-driven memento mori. <a href="https://thiswasyouridea.com/expectations/" target="_blank">/expectations</a></div>
+</div>
+
 <div tabindex="0" id="zetland">
-	<div class="cartography"></div>
-	<div class="date">2019</div>
-	<div><i style="font-family: Luminari, Trattatello, fantasy;">A Nieuw And Treu Mappe of Zetland</i></div>
+	<a href="#zetland" target="_self"><div>
+		<i style="font-family: Luminari, Trattatello, fantasy;">A Nieuw And Treu Mappe of Zetland</i>
+		<div class="cartography"></div>
+		<div class="date">2019</div>
+	</div></a>
 	<div>an A1 print design</div>
 </div>
+
 <div tabindex="0" id="processing-sound">
-	<div class="in-progress"></div>
-	<div class="sound"></div>
-	<div class="dev"></div>
-	<div class="date">2018 - </div>
-	<div><code>Processing</code> Sound library 2.0</div>
+	<a href="#processing-sound" target="_self"><div>
+		<code>Processing</code> Sound library 2.0
+		<div class="in-progress"></div>
+		<div class="sound"></div>
+		<div class="dev"></div>
+		<div class="date">2018 - </div>
+	</div></a>
 	<div>As part of Google Summer of Code I undertook <a href="https://medium.com/processing-foundation/sound-2-0-cbb90953ec53">a complete re-write of the official Sound library</a> for <a href="https://processing.org/">Processing</a>, a software framework for visual media arts. I still act as the principal maintainer of the <a href="https://github.com/processing/processing-sound"><code>processing-sound</code></a> Java library.</div>
 </div>
+
 <div tabindex="0" id="thiswasyouridea" class="highlight">
-	<div class="web"></div>
-	<div class="cartography"></div>
-	<div class="art"></div>
-	<div class="date">2018 - </div>
-	<div><code>thiswasyouridea.com</code></div>
+	<a href="#thiswasyouridea" target="_self"><div>
+		<code>thiswasyouridea.com</code>
+		<div class="web"></div>
+		<div class="cartography"></div>
+		<div class="art"></div>
+		<div class="date">2018 - </div>
+	</div></a>
 	<div>a website with psychogeographic blurbs. design by <a href="https://a-na.net/">Ana Jeličiċ</a>. <a href="https://thiswasyouridea.com">thiswasyouridea.com</a></div>
 	</div>
 </div>
-<div tabindex="0" id="midi">
-	<div class="sound"></div>
-	<div class="dev"></div>
-	<div class="date">2018</div>
-	<div>arduino tap midi clock</div>
-	<div>I've designed and built a little Arduino Nano-based MIDI beat clock driver for use in live performances. It allows you to flexibly control drum machines or other MIDI-driven arpeggiators from a tap button or pedal (such as a digital keyboard sustain pedal).</div>
+
+<div tabindex="0" id="arduino-midi">
+	<a href="#arduino-midi" target="_self"><div>
+		arduino tap midi clock
+		<div class="sound"></div>
+		<div class="dev"></div>
+		<div class="date">2018</div>
+	</div></a>
+	<div>Arduino Nano-based MIDI beat clock driver for use in live performances. It allows you to flexibly control drum machines or other MIDI-driven arpeggiators from a tap button or pedal (such as a digital keyboard sustain pedal).</div>
 </div>
+
 <div tabindex="0" id="cultevo">
-	<div class="academia"></div>
-	<div class="dev"></div>
-	<div class="date">2017 - </div>
-	<div><code>cultevo</code> R package</div>
-	<div><p>If you're a linguist or cultural evolution researcher you might be interested in my <code>cultevo</code> R package, which provides measures and statistical tests often used in the study of cultural evolution.</p>
-<ul class="linklist">
-                <li><a href="https://kevinstadler.github.io/cultevo/">visit the package website</a></li>
-                <li><a href="https://CRAN.R-project.org/package=cultevo">view package on CRAN</a></li>
-                <li><a class="octo" href="https://github.com/kevinstadler/cultevo">view the source code</a></li>
-</ul></div>
+	<a href="#cultevo" target="_self"><div>
+		<code>cultevo</code> R package
+		<div class="academia"></div>
+		<div class="dev"></div>
+		<div class="date">2017 - </div>
+	</div></a>
+	<div>
+		<p>the <code>cultevo</code> R package provides measures and statistical tests for the study of cultural evolution.</p>
+		<ul class="linklist">
+	    <li><a href="https://kevinstadler.github.io/cultevo/">package website/reference</a></li>
+	    <li><a href="https://CRAN.R-project.org/package=cultevo">CRAN</a></li>
+	    <li><a class="octo" href="https://github.com/kevinstadler/cultevo">source code</a></li>
+		</ul>
+	</div>
 </div>
+
 <div tabindex="0" id="thesis">
-	<div class="academia"></div>
-	<div class="date">2016</div>
-	<div>PhD thesis</div>
+	<a href="#thesis" target="_self"><div>
+		PhD thesis
+		<div class="academia"></div>
+		<div class="date">2016</div>
+	</div></a>
 	<div>For my PhD I looked at how the psychological mechanisms of trend detection and amplification in the individual can lead to the widespread adoption of new conventions across a community, a research question at the intersection of sociolinguistics, historical linguistics and evolutionary modelling. My thesis combined dialectology research with computational and mathematical modelling and can be downloaded <a href="https://www.era.lib.ed.ac.uk/handle/1842/22980">here</a>.<br>
 		The source code for the models, graphs and statistical analyses can be found in the dedicated <a href="https://github.com/kevinstadler/thesis">GitHub repository</a>.</div>
 </div>
+
 <div tabindex="0" id="remap">
-	<div class="installation"></div>
-	<div class="cartography"></div>
-	<div class="art"></div>
-	<div class="date">2015</div>
-	<div>remap</div>
+	<a href="#remap" target="_self"><div>
+		remap
+		<div class="installation"></div>
+		<div class="cartography"></div>
+		<div class="art"></div>
+		<div class="date">2015</div>
+	</div></a>
 	<div>toponymic community action</div>
 </div>
+
 <div tabindex="0" id="sonicgraygoo">
-	<div class="installation"></div>
-	<div class="sound"></div>
-	<div class="art"></div>
-	<div class="date">2014</div>
-	<div>sonic gray goo</div>
+	<a href="#sonicgraygoo" target="_self"><div>
+		sonic gray goo
+		<div class="installation"></div>
+		<div class="sound"></div>
+		<div class="art"></div>
+		<div class="date">2014</div>
+	</div></a>
 	<div>an audio-visual installation</div>
 </div>
+
 <div tabindex="0" id="songstofallasleepto">
-	<div class="sound"></div>
-	<div class="date">2013 - 14</div>
-	<div>songs to fall asleep to</div>
-	<div>a radio show I did with Megan. <a href="https://www.mixcloud.com/songstofallasleepto/">mixcloud.com/songstofallasleepto/</a></div>
+	<a href="#songstofallasleepto" target="_self"><div>
+		songs to fall asleep to
+		<div class="sound"></div>
+		<div class="date">2013 - 14</div>
+	</div></a>
+	<div>a student radio show I did with Megan of <a href="https://babydearharvest.com/about-us" target="_blank">Baby Dear Harvest</a>. <a href="https://www.mixcloud.com/songstofallasleepto/" target="_blank">mixcloud.com/songstofallasleepto</a></div>
 </div>
+
 <div tabindex="0" id="teaching">
-	<div class="academia"></div>
-	<div class="date">2013 - </div>
-	<div>teaching</div>
+	<a href="#teaching" target="_self"><div>
+		teaching
+		<div class="academia"></div>
+		<div class="date">2013 - </div>
+	</div></a>
 	<div>I've taught these things before</div>
 </div>
-<div tabindex="0" id="anotherday-pt2">
-	<div class="future"></div>
-	<div class="art"></div>
-	<div>another day (pt. 2)</div>
-	<div>replaying the weather from another day</div>
-</div>
+
 <div tabindex="0" id="lastfm">
-	<div class="tracking"></div>
-	<div class="date">2005 - </div>
-	<div>last.fm</div>
+	<a href="#lastfm" target="_self"><div>
+		last.fm
+		<div class="tracking"></div>
+		<div class="date">2005 - </div>
+	</div></a>
 	<div></div>
 </div>
-<footer><a href="https://kevinstadler.github.io/notes/">technical notes</a> <a href="https://github.com/kevinstadler">github</a></footer>
+
+<div tabindex="0" id="anotherday-pt2">
+	<a href="#" target="_self"><div>
+		another day (pt. 2)
+		<div class="future"></div>
+		<div class="art"></div>
+	</div></a>
+	<div>replaying the weather from another day</div>
+</div>
+
+<div id="contact" style="display: none; position: absolute;">
+	<h2>this is a contact form of sorts</h2>
+	<form>
+		<input type="button">FOO</form>
+	</form>
+</div>
+
+<footer><a id="index" href="#top" target="_self">index</a> <a href="https://kevinstadler.github.io/notes/" target="_blank">technical notes</a> <a href="https://github.com/kevinstadler" target="_blank">github</a> <a href="#contact" target="_self">contact</a></footer>
 </body>
 <script type="text/javascript">
+const btn = document.getElementById('index');
+let madness = false;
+const toggleMadness = function() {
+	madness = !madness;
+	btn.textContent = !madness ? '🌀' : 'index';
+	document.title = 'k | ' + (madness ? '🌀' : 'index');
+	// ◷◶◵◴
+	for (let el of document.body.children) {
+		if (el.localName !== 'div') {
+			continue;
+		}
+		el.style.marginLeft = madness ? 80 * Math.random() : 0;
+	}
+};
+toggleMadness();
+btn.addEventListener('click', toggleMadness);
 $(function () {
     $('a').fluidbox();
 });
