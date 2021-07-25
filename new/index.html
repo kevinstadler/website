@@ -132,6 +132,11 @@ body > div > div:last-child {
   transform: scaleY(0);
   overflow: hidden;
   transition: all 300ms ease-out;
+  /*
+  margin-left: 20em;
+  float: right;
+  margin-right: -20em;
+  */
 }
 
 body > div:target > div:last-child { /*, body > div:focus-within > div:last-child { */
@@ -143,7 +148,7 @@ body > div:target > div:last-child { /*, body > div:focus-within > div:last-chil
 /*  transition: padding 300ms ease-out, max-height 3s ease-out; */
 }
 
-body > div:target > div.twocol:last-child {
+body > div:target > div.twocol > :last-child {
 	margin: 0;
 	width: 100%;
 	display: flex;
@@ -281,8 +286,10 @@ body > div:target > div.twocol:last-child {
 <div tabindex="0" id="about">
 	<a href="#about" target="_self"><div>k</div></a>
 	<div class="twocol">
-		<p>I like it when things are broken, or used in ways other than intended.</p>
-		<p>I used to walk with the <a href="https://www.facebook.com/sundayadventure/" target="_blank">Sunday Adventure Club</a>. I've also exhibited some experimental maps with <a href="http://theresidentsassociation.tumblr.com/" target="_blank">The Residents Association</a>.</p>
+		<p>I enjoy contradictions in the usage, interpretation and representation of geographic, particularly public spaces.</p>
+		<p>starting from my own subjective, psychogeographic perception on site, I often apply digital, quantitative and archival approaches to re-approach and re-present sites of interest.</p>
+	  <p>I misappropriate supposedly 'objective' technologies such as databases or cartography, to expose their inherent contradictions as tools for construing an intersubjective conception of spaces.</p>
+		<p>I used to walk and exhibit experimental maps with the <a href="http://theresidentsassociation.tumblr.com/" target="_blank">The Residents Association</a> and <a href="https://www.facebook.com/sundayadventure/" target="_blank">Sunday Adventure Club</a>.</p>
 		<div class="right">
 			<a href="https://kevinstadler.github.io/img/kevin.jpg"><img src="https://kevinstadler.github.io/img/kevin.jpg" loading="lazy" alt="Kevin wearing his favourite headband with two teddy bears"></a>
 			<a href="snake.jpg"><img src="snake.jpg" loading="lazy" alt="meet & greet with Sir Hiss"></a>
@@ -661,7 +668,7 @@ const btn = document.getElementById('index');
 let madness = false;
 const toggleMadness = function() {
 	madness = !madness;
-	btn.textContent = !madness ? '🌀' : 'index';
+	btn.textContent = !madness ? '🌀 ' : 'index';
 	document.title = 'k | ' + (madness ? '🌀' : 'index');
 	// ◷◶◵◴
 	for (let el of document.body.children) {
@@ -671,7 +678,7 @@ const toggleMadness = function() {
 		el.style.marginLeft = madness ? 80 * Math.random() : 0;
 	}
 };
-toggleMadness();
+//toggleMadness();
 btn.addEventListener('click', toggleMadness);
 $(function () {
     $('a').fluidbox();
