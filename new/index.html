@@ -17,16 +17,63 @@ body {
   width: 90%;
   padding: .5em 0 3em 0;
   min-width: 18em;
-  max-width: 40em;
   font-weight: lighter;
 }
 
-div.img {
+#content {
+	margin: auto;
+  max-width: 80em;
+  display: grid;
+  row-gap: .4em;
+}
+
+#content > :nth-child(even) {
+	display: none;
+	padding: 2em 3em;
+	min-width: 20em;
+}
+
+@media (min-width: 40em) {
+
+	#content {
+	  grid-template-columns: max-content 1fr;
+	  grid-template-rows: auto;
+	}
+
+	#content > :nth-child(odd) {
+		grid-column-start: 1;
+	}
+
+	#content > :nth-child(odd):target {
+		background-color: #faf3f3;
+/*		grid-column-end: span 2; */
+	}
+
+	#content > :nth-child(even) {
+    background-color: #faf3f3;
+    grid-column-start: 2;
+	/*	grid-row-start: 1;
+		position: sticky;
+		top: 1em; */
+		align-self: start;
+		grid-row-end: span 100;
+
+		max-height: 90vh;
+		overflow-y: scroll;
+	}
+
+}
+
+#content > :target + :nth-child(even) {
+  display: initial;
+}
+
+/*div.img {
   position: relative;
   float: right;
-/*  margin: .5em;
-  margin-right: -50%; */
-}
+  margin: .5em;
+  margin-right: -50%;
+} */
 
 img {
 	max-width: 100%;
@@ -90,27 +137,29 @@ body > div:target {
 */
 
 /* box */
-body > div {
-  margin: 1em 0;
-  padding: .4em .5em;
-  border-radius: .1em;
-  box-shadow: .1em .1em .2em #888;
+#content > div:nth-child(odd) {
+  padding-right: 2em;
 }
 
 /* item title bar */
-body > div > a {
+#content > div:nth-child(odd) > a {
+	background-color: white;
+	display: block;
+  padding: .4em .5em;
+  border-radius: .1em;
+  box-shadow: .1em .1em .2em #888;
   cursor: zoom-in;
 	text-decoration: none;
 }
 
 /* title text */
-body > div > a > * {
+#content > div:nth-child(odd) > a > * {
   font-weight: 600;
 	color: black;
 }
 
 /* category boxes */
-body > div > a > div > div {
+#content > div:nth-child(odd) > a > div > div {
   font-size: 80%;
   border-style: dotted;
   border-radius: .5em;
@@ -140,34 +189,17 @@ body > div > div:last-child {
   */
 }
 
-body > div:target > div:last-child { /*, body > div:focus-within > div:last-child { */
-  max-height: fit-content;
-  /* 100% for proper scrolling but need to do something about overflow
-  overflow: visible; */
-  padding: .8em 0;
-  transform: scaleY(1.0);
-/*  transition: padding 300ms ease-out, max-height 3s ease-out; */
-}
-
-body > div:target > div.twocol > :last-child {
-	margin: 0;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	overflow: visible;
-}
-
-.twocol > .right {
+/*.twocol > .right {
 	margin-right: -25%;
 	align-self: flex-end;
 	display: flex;
 	align-items: flex-end;
 	justify-content: flex-end;
 }
+*/
 
-.right > * {
-	flex: 0 0 auto;
+.fluidbox__wrap {
+  width: fit-content;
 }
 
 .twocol img {
@@ -284,8 +316,10 @@ body > div:target > div.twocol > :last-child {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fluidbox/2.0.5/js/jquery.fluidbox.min.js" integrity="sha512-0kQqdmb3fpKtRwrbCZDlmiwuZgDyPAOLDOu/HyAt4py7lAVDXKknqtqS6dFNV8U8JrHZymQxlO9SFPZ2u8dhMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fluidbox/2.0.5/css/fluidbox.min.css" integrity="sha512-1gVXQF5Q9gL1HvHBLK0y3IAWCorLY9EU+JMTsLBlXgWfgf6EIS/8B27R/nUq1joeKz2N7ZHCNnLCjc+PuqDqDA==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
 <body id="top">
-<div tabindex="0" id="about">
-	<a href="#about" target="_self"><div>k</div></a>
+<div id="content">
+	<div tabindex="0" id="about">
+		<a href="#about" target="_self"><div>k</div></a>
+	</div>
 	<div class="twocol">
 		<p>I enjoy contradictions in the usage, interpretation and representation of geographic, particularly public spaces.</p>
 		<p>starting from my own subjective, psychogeographic perception on site, I often apply digital, quantitative and archival approaches to re-approach and re-present sites of interest.</p>
@@ -296,303 +330,319 @@ body > div:target > div.twocol > :last-child {
 			<a href="snake.jpg"><img src="snake.jpg" loading="lazy" alt="meet & greet with Sir Hiss"></a>
 		</div>
 	</div>
-</div>
-<div tabindex="0" id="now">
-	<a href="#now" target="_self"><div>now</div></a>
+
+	<div tabindex="0" id="now">
+		<a href="#now" target="_self"><div>now</div></a>
+	</div>
 	<div>
 		<p>August 2021</p>
 		<ul>
-			<li>foo</li>
+			<li>I am <em>still</em> working on a new website (this one)</li>
+			<li>Having worked out <a href="https://thiswasyouridea.com/theview/" target="_blank">a framework for documenting views</a> last month, I will continue <a href="https://thiswasyouridea.com/theview-kunming/" target="_blank">visiting + documenting views in my area</a></li>
+			<li>I am packing up my room and getting rid of stuff, which is a painful endeavour just like any other time I've ever moved house.</li>
+			<li>I am producing some mock graduation certificates in the local style, including getting mock office stamps manufactured as gifts for former colleagues</li>
+			<li>I haven't made much progress on finishing up <a href="https://github.com/kevinstadler/anotherday" target="_blank">my LED project</a> (see July below), but I will tackle three concrete steps to move forward:</li>
+			<ol>
+				<li>write up and publish my comparison of software PWM performance on Arduino</li>
+				<li>update the text display to include information about outdated playback data</li>
+				<li>solder a new D1 Mini shield which can connect both the PWM LEDs and text display</li>
+			</ol>
 		</ul>
-		<div style="text-decoration: line-through;">
+		<div style="text-decoration: line-through dotted;">
 			<p>July 2021</p>
 			<ul>
 				<li>I'm working on a new website (this one).</li>
-				<li>I want to pick up/finish some work about <a href="https://thiswasyouridea.com/the-view/" target="_blank">views</a> that I started about a year ago. Last year I thought a lot about views and viewpoints in public places, how they are not necessarily appreciated, protected or preserved, and are in fact rapidly getting privatised or otherwise occupied in the city where I live. Since I will be moving soon, this is my last chance to try some systematic analysis and documentation of the sites that originally inspired these thoughts. Apart from wrapping up a little piece of unfinished writing from last year, I also want to first "approach" or identify some local views in a quantitative way, before physically seeking out the sites and documenting them in some way (probably geometric photography).</li>
+				<li>I want to pick up/finish some work about <a href="https://thiswasyouridea.com/theview/" target="_blank">views</a> that I started about a year ago. Last year I thought a lot about views and viewpoints in public places, how they are not necessarily appreciated, protected or preserved, and are in fact rapidly getting privatised or otherwise occupied in the city where I live. Since I will be moving soon, this is my last chance to try some systematic analysis and documentation of the sites that originally inspired these thoughts. Apart from wrapping up a little piece of unfinished writing from last year, I also want to first "approach" or identify some local views in a quantitative way, before physically seeking out the sites and documenting them in some way (probably geometric photography).</li>
 				<li>I will be going on a <a href="https://www.yunnantrails.com/yading-outer-kora" target="_blank">5 day hike mostly above 4000m altitude</a>.</li>
 				<li>My goal this year was to practice creating more physical objects, by which I guess I just mean LED stuff. I've built 3 little things which, while conceptually good, were disappointing in their physical execution. I will continue to work on refining one of the dynamic lamps by trying out more diffuse/background lighting arrangements.</li>
 				<li>I'm doing daily physio exercises especially for my knees and also back/shoulders.</li>
 			</ul>
 		</div>
 	</div>
-</div>
-<hr>
-<div tabindex="0" id="steppingintothelight">
-	<a href="#steppingintothelight" target="_self"><div>
-		stepping into the light
-		<div class="future"></div>
-		<div class="installation"></div>
-		<div class="art"></div>
-		<div class="date">2022</div>
-	</div></a>
-	<div>in 2022 I will build a brightly lit room in which you always stand in the dark</div>
-</div>
 
-<div tabindex="0" id="borderinspection">
-	<a href="#borderinspection" target="_self"><div>
-		border inspection
-		<div class="in-progress"></div>
-		<div class="installation"></div>
-		<div class="web"></div>
-		<div class="cartography"></div>
-		<div class="art"></div>
-		<div class="date">2021 -</div>
-	</div></a>
+	<hr><div></div>
+
+	<div tabindex="0" id="steppingintothelight">
+		<a href="#steppingintothelight" target="_self"><div>
+			stepping into the light
+			<div class="future"></div>
+			<div class="installation"></div>
+			<div class="art"></div>
+			<div class="date">2022</div>
+		</div></a>
+	</div>
+
+	<div>in 2022 I will build a brightly lit room in which you always stand in the dark</div>
+
+	<div tabindex="0" id="borderinspection">
+		<a href="#borderinspection" target="_self"><div>
+			border inspection
+			<div class="in-progress"></div>
+			<div class="installation"></div>
+			<div class="web"></div>
+			<div class="cartography"></div>
+			<div class="art"></div>
+			<div class="date">2021 -</div>
+		</div></a>
+	</div>
 	<div><p><em>inspecting borders since 2021.</em></p>
 		<p>High-quality 3D tours of the world's national boundaries, rendered on demand and whenever we feel like it. <a href="https://thiswasyouridea.com/borderinspection/" target="_blank">/borderinspection</a></p>
 	</div>
-</div>
 
-<div tabindex="0" id="anotherday-pt1">
-	<a href="#anotherday-pt1" target="_self"><div>
-		another day (pt. 1)
-		<div class="in-progress"></div>
-		<div class="art"></div>
-		<div class="date">2021</div>
-	</div></a>
+	<div tabindex="0" id="anotherday-pt1">
+		<a href="#anotherday-pt1" target="_self"><div>
+			another day (pt. 1)
+			<div class="in-progress"></div>
+			<div class="art"></div>
+			<div class="date">2021</div>
+		</div></a>
+	</div>
+
 	<div>a light installation nostalgic for another day</div>
-</div>
 
-<div tabindex="0" id="za" class="highlight">
-	<a href="#za" target="_self"><div>
-		ZA
-		<div class="in-progress"></div>
-		<div class="cartography"></div>
-		<div class="art"></div>
-		<div class="date">2020 -</div>
-	</div></a>
+	<div tabindex="0" id="za" class="highlight">
+		<a href="#za" target="_self"><div>
+			ZA
+			<div class="in-progress"></div>
+			<div class="cartography"></div>
+			<div class="art"></div>
+			<div class="date">2020 -</div>
+		</div></a>
+	</div>
+
 	<div class="twocol">
 		<p><em>Z to A</em> is an ongoing series of street atlas publications for places that the A to Z never dared to go.</p>
-		<a class="right" href="za.jpg"><img src="za.jpg" title="a Z-A street atlas book"></a>
+		<a href="za.jpg"><img src="za.jpg" title="a Z-A street atlas book"></a>
 	</div>
-</div>
 
-<div tabindex="0" id="theview">
-	<a href="#theview"><div>
-		<span>the view</span>
-		<div class="in-progress"></div>
-		<div class="cartography"></div>
-		<div class="date">2020 -</div>
-	</div></a>
+	<div tabindex="0" id="theview">
+		<a href="#theview"><div>
+			<span>the view</span>
+			<div class="in-progress"></div>
+			<div class="cartography"></div>
+			<div class="date">2020 -</div>
+		</div></a>
+	</div>
 	<div><a href="https://thiswasyouridea.com/the-view/" target="_blank">/the-view</a></div>
-</div>
 
-<div tabindex="0" id="thelightonmyroof">
-	<a href="#thelightonmyroof" target="_self"><div>
-		the light on my roof
-		<div class="web"></div>
-		<div class="tracking"></div>
-		<div class="date">2021</div>
-	</div></a>
+	<div tabindex="0" id="thelightonmyroof">
+		<a href="#thelightonmyroof" target="_self"><div>
+			the light on my roof
+			<div class="web"></div>
+			<div class="tracking"></div>
+			<div class="date">2021</div>
+		</div></a>
+	</div>
 	<div>
 		monitoring by-product of measurement work for <a href="#anotheryday-pt1">another day</a>.
-		<p><a href="https://thiswasyouridea.com/thelightonmyroof/" target="_blank">/thelightonmyroof</a></p></div>
-</div>
+		<p><a href="https://thiswasyouridea.com/thelightonmyroof/" target="_blank">/thelightonmyroof</a></p>
+	</div>
 
-<div tabindex="0" id="bird">
-	<a href="#bird" target="_self"><div>
-		saved a bird
-		<div class="misc"></div>
-		<div class="date">2021</div>
-	</div></a>
+	<div tabindex="0" id="bird">
+		<a href="#bird" target="_self"><div>
+			saved a bird
+			<div class="misc"></div>
+			<div class="date">2021</div>
+		</div></a>
+	</div>
 	<div class="twocol">
 		<p>on May 19th I saved an injured bird, unable to escape from the balcony it was trapped in, from certain death by dehydration.</p>
 		<a class="right" href="bird.jpg"><img src="bird.jpg" loading="lazy" alt="recipient of the rescue operation"></a>
 	</div>
-</div>
 
-<div tabindex="0" id="borderlands" class="highlight">
-	<a href="#borderlands" target="_self"><div>
-		borderlands
-		<div class="web"></div>
-		<div class="cartography"></div>
-		<div class="art"></div>
-		<div class="date">2021</div>
-	</div></a>
+	<div tabindex="0" id="borderlands" class="highlight">
+		<a href="#borderlands" target="_self"><div>
+			borderlands
+			<div class="web"></div>
+			<div class="cartography"></div>
+			<div class="art"></div>
+			<div class="date">2021</div>
+		</div></a>
+	</div>
 	<div class="twocol">
 		<p>an accurate map of the world's borders and the shrubs on either side. <a href="https://thiswasyouridea.com/borderlands/">/borderlands</a></p>
 		<a class="right" href="https://res.cloudinary.com/futile/image/upload/w_auto,c_crop,q_auto/meta/borderlands.png"><img src="https://res.cloudinary.com/futile/image/upload/w_auto,c_crop,q_auto/meta/borderlands.png" loading="lazy" alt="borderlands"></a>
 	</div>
-</div>
 
-<div tabindex="0" id="time">
-	<a href="#time" target="_self"><div>
-		Florence Universal Hexadecimal Mean Time
-		<div class="web"></div>
-		<div class="art"></div>
-		<div class="misc"></div>
-		<div class="tool"></div>
-		<div class="date">2021</div>
-	</div></a>
+	<div tabindex="0" id="time">
+		<a href="#time" target="_self"><div>
+			Florence Universal Hexadecimal Mean Time
+			<div class="web"></div>
+			<div class="art"></div>
+			<div class="misc"></div>
+			<div class="tool"></div>
+			<div class="date">2021</div>
+		</div></a>
+	</div>
 	<div>
 		<p>online tool for converting to/from Florence Universal Hexadecimal Mean Time</p>
-		<p><a href="https://thiswasyouridea.com/time/" target="_blank">/time</a></p></div>
-</div>
+		<p><a href="https://thiswasyouridea.com/time/" target="_blank">/time</a></p>
+	</div>
 
-<div tabindex="0" id="tcs34725">
-	<a href="#tcs34725" target="_self"><div><code>TCS34725AutoGain</code> Arduino library
-		<div class="tool"></div>
-		<div class="date">2021</div>
-	</div></a>
+	<div tabindex="0" id="tcs34725">
+		<a href="#tcs34725" target="_self"><div><code>TCS34725AutoGain</code> Arduino library
+			<div class="tool"></div>
+			<div class="date">2021</div>
+		</div></a>
+	</div>
 	<div>An Arduino library for the TCS34725 RGB color sensor.
 		<p><a href="https://github.com/kevinstadler/TCS34725AutoGain" target="_blank">github/TCS34725AutoGain</a></p>
 	</div>
-</div>
 
-<div tabindex="0" id="quokkathedog">
-	<a href="#quokkathedog" target="_self"><div>
-		quokka the dog
-		<div class="web"></div>
-		<div class="tracking"></div>
-		<div class="date">2021</div>
-	</div></a>
+	<div tabindex="0" id="quokkathedog">
+		<a href="#quokkathedog" target="_self"><div>
+			quokka the dog
+			<div class="web"></div>
+			<div class="tracking"></div>
+			<div class="date">2021</div>
+		</div></a>
+	</div>
 	<div>surveillance camera for my dog</div>
-</div>
 
-<div tabindex="0" id="altitude">
-	<a href="#altitude" target="_self"><div>
-		altitude
-		<div class="web"></div>
-		<div class="cartography"></div>
-		<div class="date">2021</div>
-	</div></a>
+	<div tabindex="0" id="altitude">
+		<a href="#altitude" target="_self"><div>
+			altitude
+			<div class="web"></div>
+			<div class="cartography"></div>
+			<div class="date">2021</div>
+		</div></a>
+	</div>
 	<div><a href="https://kevinstadler.github.io/altitude/" target="_blank">/altitude</a></div>
-</div>
 
-<div tabindex="0" id="chroma">
-	<a href="#chroma" target="_self"><div>
-		chroma-map
-		<div class="web"></div>
-		<div class="cartography"></div>
-		<div class="art"></div>
-		<div class="date">2021</div>
-	</div></a>
+	<div tabindex="0" id="chroma">
+		<a href="#chroma" target="_self"><div>
+			chroma-map
+			<div class="web"></div>
+			<div class="cartography"></div>
+			<div class="art"></div>
+			<div class="date">2021</div>
+		</div></a>
+	</div>
 	<div><a href="https://thiswasyouridea.com/chroma-map/" target="_blank">/chroma-map</a></div>
-</div>
 
-<div tabindex="0" id="howbigisthisthing">
-	<a href="#howbigisthisthing" target="_self"><div>
-		how big is this thing
-		<div class="web"></div>
-		<div class="cartography"></div>
-		<div class="tool"></div>
-		<div class="date">2020</div>
-	</div></a>
+	<div tabindex="0" id="howbigisthisthing">
+		<a href="#howbigisthisthing" target="_self"><div>
+			how big is this thing
+			<div class="web"></div>
+			<div class="cartography"></div>
+			<div class="tool"></div>
+			<div class="date">2020</div>
+		</div></a>
+	</div>
 	<div>an interactive map</div>
-</div>
 
-<div tabindex="0" id="alongthesameline">
-	<a href="#alongthesameline" target="_self"><div>
-		along the same line
-		<div class="web"></div>
-		<div class="cartography"></div>
-		<div class="tool"></div>
-		<div class="date">2020</div>
-	</div></a>
+	<div tabindex="0" id="alongthesameline">
+		<a href="#alongthesameline" target="_self"><div>
+			along the same line
+			<div class="web"></div>
+			<div class="cartography"></div>
+			<div class="tool"></div>
+			<div class="date">2020</div>
+		</div></a>
+	</div>
 	<div>thing for generating things</div>
-</div>
 
-<div tabindex="0" id="everybodyelse" class="highlight">
-	<a href="#everybodyelse" target="_self"><div>
-		everybody else
-		<div class="web"></div>
-		<div class="cartography"></div>
-		<div class="art"></div>
-		<div class="date">2020</div>
-	</div></a>
+	<div tabindex="0" id="everybodyelse" class="highlight">
+		<a href="#everybodyelse" target="_self"><div>
+			everybody else
+			<div class="web"></div>
+			<div class="cartography"></div>
+			<div class="art"></div>
+			<div class="date">2020</div>
+		</div></a>
+	</div>
 	<div>
 		<p>people-watching of everyone alive on this planet today</p>
 	<a href="https://thiswasyouridea.com/everybodyelse/" target="_blank">/everybodyelse</a></div>
-</div>
 
-<div tabindex="0" id="whatareyouafraidof">
-	<a href="#whatareyouafraidof" target="_self"><div>
-		你更害怕什么 (what are you afraid of?)
-		<div class="art"></div>
-		<div class="installation"></div>
-		<div class="date">2020</div>
-	</div></a>
-	<div>bla</div>
-</div>
-
-<div tabindex="0" id="imagined-communities">
-	<a href="#imagined-communities" target="_self"><div>imagined communities
-		<div class="web"></div>
-		<div class="cartography"></div>
-		<div class="art"></div>
-		<div class="date">2020</div>
-	</div></a>
-	<div>bla</div>
-</div>
-
-<div tabindex="0" id="expectations">
-	<a href="#expectations" target="_self"><div>
-		expectations
-		<div class="web"></div>
-		<div class="misc"></div>
-		<div class="date">2019</div>
-	</div></a>
-	<div>a data-driven memento mori. <a href="https://thiswasyouridea.com/expectations/" target="_blank">/expectations</a></div>
-</div>
-
-<div tabindex="0" id="zetland">
-	<a href="#zetland" target="_self"><div>
-		<i style="font-family: Luminari, Trattatello, fantasy;">A Nieuw And Treu Mappe of Zetland</i>
-		<div class="cartography"></div>
-		<div class="date">2019</div>
-	</div></a>
-	<div>an A1 print design</div>
-</div>
-
-<div tabindex="0" id="processing-sound">
-	<a href="#processing-sound" target="_self"><div>
-		<code>Processing</code> Sound library 2.0
-		<div class="in-progress"></div>
-		<div class="sound"></div>
-		<div class="dev"></div>
-		<div class="date">2018 - </div>
-	</div></a>
-	<div>As part of Google Summer of Code I undertook <a href="https://medium.com/processing-foundation/sound-2-0-cbb90953ec53">a complete re-write of the official Sound library</a> for <a href="https://processing.org/">Processing</a>, a software framework for visual media arts. I still act as the principal maintainer of the <a href="https://github.com/processing/processing-sound"><code>processing-sound</code></a> Java library.</div>
-</div>
-
-<div tabindex="0" id="thiswasyouridea" class="highlight">
-	<a href="#thiswasyouridea" target="_self"><div>
-		<code>thiswasyouridea.com</code>
-		<div class="web"></div>
-		<div class="cartography"></div>
-		<div class="art"></div>
-		<div class="date">2018 - </div>
-	</div></a>
-	<div>a website with psychogeographic blurbs. design by <a href="https://a-na.net/">Ana Jeličiċ</a>. <a href="https://thiswasyouridea.com">thiswasyouridea.com</a></div>
+	<div tabindex="0" id="whatareyouafraidof">
+		<a href="#whatareyouafraidof" target="_self"><div>
+			你更害怕什么 (what are you afraid of?)
+			<div class="art"></div>
+			<div class="installation"></div>
+			<div class="date">2020</div>
+		</div></a>
 	</div>
-</div>
+	<div>bla</div>
 
-<div tabindex="0" id="arduino-midi">
-	<a href="#arduino-midi" target="_self"><div>
-		arduino tap midi clock
-		<div class="sound"></div>
-		<div class="dev"></div>
-		<div class="date">2018</div>
-	</div></a>
+	<div tabindex="0" id="imagined-communities">
+		<a href="#imagined-communities" target="_self"><div>imagined communities
+			<div class="web"></div>
+			<div class="cartography"></div>
+			<div class="art"></div>
+			<div class="date">2020</div>
+		</div></a>
+	</div>
+	<div>bla</div>
+
+	<div tabindex="0" id="expectations">
+		<a href="#expectations" target="_self"><div>
+			expectations
+			<div class="web"></div>
+			<div class="misc"></div>
+			<div class="date">2019</div>
+		</div></a>
+	</div>
+	<div>a data-driven memento mori. <a href="https://thiswasyouridea.com/expectations/" target="_blank">/expectations</a></div>
+
+	<div tabindex="0" id="zetland">
+		<a href="#zetland" target="_self"><div>
+			<i style="font-family: Luminari, Trattatello, fantasy;">A Nieuw And Treu Mappe of Zetland</i>
+			<div class="cartography"></div>
+			<div class="date">2019</div>
+		</div></a>
+	</div>
+	<div>an A1 print design</div>
+
+	<div tabindex="0" id="processing-sound">
+		<a href="#processing-sound" target="_self"><div>
+			<code>Processing</code> Sound library 2.0
+			<div class="in-progress"></div>
+			<div class="sound"></div>
+			<div class="dev"></div>
+			<div class="date">2018 - </div>
+		</div></a>
+	</div>
+	<div>As part of Google Summer of Code I undertook <a href="https://medium.com/processing-foundation/sound-2-0-cbb90953ec53">a complete re-write of the official Sound library</a> for <a href="https://processing.org/">Processing</a>, a software framework for visual media arts. I still act as the principal maintainer of the <a href="https://github.com/processing/processing-sound"><code>processing-sound</code></a> Java library.</div>
+
+	<div tabindex="0" id="thiswasyouridea" class="highlight">
+		<a href="#thiswasyouridea" target="_self"><div>
+			<code>thiswasyouridea.com</code>
+			<div class="web"></div>
+			<div class="cartography"></div>
+			<div class="art"></div>
+			<div class="date">2018 - </div>
+		</div></a>
+	</div>
+	<div>a website with psychogeographic blurbs. design by <a href="https://a-na.net/">Ana Jeličiċ</a>. <a href="https://thiswasyouridea.com">thiswasyouridea.com</a></div>
+
+	<div tabindex="0" id="arduino-midi">
+		<a href="#arduino-midi" target="_self"><div>
+			arduino tap midi clock
+			<div class="sound"></div>
+			<div class="dev"></div>
+			<div class="date">2018</div>
+		</div></a>
+	</div>
 	<div>Arduino Nano-based MIDI beat clock driver for use in live performances. It allows you to flexibly control drum machines or other MIDI-driven arpeggiators from a tap button or pedal (such as a digital keyboard sustain pedal).</div>
-</div>
 
-<div tabindex="0" id="dottr">
-	<a href="#dottr" target="_self"><div>
-		dottr
-		<div class="web"></div>
-		<div class="date">2018</div>
-	</div></a>
+	<div tabindex="0" id="dottr">
+		<a href="#dottr" target="_self"><div>
+			dottr
+			<div class="web"></div>
+			<div class="date">2018</div>
+		</div></a>
+	</div>
 	<div>operant conditioning for the masses. <a href="https://kevinstadler.github.io/dottr/">/dottr</a></div>
-</div>
 
-<div tabindex="0" id="cultevo">
-	<a href="#cultevo" target="_self"><div>
-		<code>cultevo</code> R package
-		<div class="academia"></div>
-		<div class="dev"></div>
-		<div class="date">2017 - </div>
-	</div></a>
+	<div tabindex="0" id="cultevo">
+		<a href="#cultevo" target="_self"><div>
+			<code>cultevo</code> R package
+			<div class="academia"></div>
+			<div class="dev"></div>
+			<div class="date">2017 - </div>
+		</div></a>
+	</div>
 	<div>
 		<p>the <code>cultevo</code> R package provides measures and statistical tests for the study of cultural evolution.</p>
 		<ul class="linklist">
@@ -601,73 +651,73 @@ body > div:target > div.twocol > :last-child {
 	    <li><a class="octo" href="https://github.com/kevinstadler/cultevo">source code</a></li>
 		</ul>
 	</div>
-</div>
 
-<div tabindex="0" id="thesis">
-	<a href="#thesis" target="_self"><div>
-		PhD thesis
-		<div class="academia"></div>
-		<div class="date">2016</div>
-	</div></a>
+	<div tabindex="0" id="thesis">
+		<a href="#thesis" target="_self"><div>
+			PhD thesis
+			<div class="academia"></div>
+			<div class="date">2016</div>
+		</div></a>
+	</div>
 	<div>For my PhD I looked at how the psychological mechanisms of trend detection and amplification in the individual can lead to the widespread adoption of new conventions across a community, a research question at the intersection of sociolinguistics, historical linguistics and evolutionary modelling. My thesis combined dialectology research with computational and mathematical modelling and can be downloaded <a href="https://www.era.lib.ed.ac.uk/handle/1842/22980">here</a>.<br>
 		The source code for the models, graphs and statistical analyses can be found in the dedicated <a href="https://github.com/kevinstadler/thesis">GitHub repository</a>.</div>
-</div>
 
-<div tabindex="0" id="remap">
-	<a href="#remap" target="_self"><div>
-		remap
-		<div class="installation"></div>
-		<div class="cartography"></div>
-		<div class="art"></div>
-		<div class="date">2015</div>
-	</div></a>
+	<div tabindex="0" id="remap">
+		<a href="#remap" target="_self"><div>
+			remap
+			<div class="installation"></div>
+			<div class="cartography"></div>
+			<div class="art"></div>
+			<div class="date">2015</div>
+		</div></a>
+	</div>
 	<div>toponymic community action</div>
-</div>
 
-<div tabindex="0" id="sonicgraygoo">
-	<a href="#sonicgraygoo" target="_self"><div>
-		sonic gray goo
-		<div class="installation"></div>
-		<div class="sound"></div>
-		<div class="art"></div>
-		<div class="date">2014</div>
-	</div></a>
+	<div tabindex="0" id="sonicgraygoo">
+		<a href="#sonicgraygoo" target="_self"><div>
+			sonic gray goo
+			<div class="installation"></div>
+			<div class="sound"></div>
+			<div class="art"></div>
+			<div class="date">2014</div>
+		</div></a>
+	</div>
 	<div>an audio-visual installation</div>
-</div>
 
-<div tabindex="0" id="songstofallasleepto">
-	<a href="#songstofallasleepto" target="_self"><div>
-		songs to fall asleep to
-		<div class="sound"></div>
-		<div class="date">2013 - 14</div>
-	</div></a>
+	<div tabindex="0" id="songstofallasleepto">
+		<a href="#songstofallasleepto" target="_self"><div>
+			songs to fall asleep to
+			<div class="sound"></div>
+			<div class="date">2013 - 14</div>
+		</div></a>
+	</div>
 	<div>a student radio show I did with Megan of <a href="https://babydearharvest.com/about-us" target="_blank">Baby Dear Harvest</a>. <a href="https://www.mixcloud.com/songstofallasleepto/" target="_blank">mixcloud.com/songstofallasleepto</a></div>
-</div>
 
-<div tabindex="0" id="teaching">
-	<a href="#teaching" target="_self"><div>
-		teaching
-		<div class="academia"></div>
-		<div class="date">2013 - </div>
-	</div></a>
+	<div tabindex="0" id="teaching">
+		<a href="#teaching" target="_self"><div>
+			teaching
+			<div class="academia"></div>
+			<div class="date">2013 - </div>
+		</div></a>
+	</div>
 	<div>I've taught these things before</div>
-</div>
 
-<div tabindex="0" id="lastfm">
-	<a href="#lastfm" target="_self"><div>
-		last.fm
-		<div class="tracking"></div>
-		<div class="date">2005 - </div>
-	</div></a>
+	<div tabindex="0" id="lastfm">
+		<a href="#lastfm" target="_self"><div>
+			last.fm
+			<div class="tracking"></div>
+			<div class="date">2005 - </div>
+		</div></a>
+	</div>
 	<div></div>
-</div>
 
-<div tabindex="0" id="anotherday-pt2">
-	<a href="#" target="_self"><div>
-		another day (pt. 2)
-		<div class="future"></div>
-		<div class="art"></div>
-	</div></a>
+	<div tabindex="0" id="anotherday-pt2">
+		<a href="#anotherday-pt2" target="_self"><div>
+			another day (pt. 2)
+			<div class="future"></div>
+			<div class="art"></div>
+		</div></a>
+	</div>
 	<div>replaying the weather from another day</div>
 </div>
 
